@@ -1,0 +1,11 @@
+p {
+  color: #553;
+  font-size: 30px;
+}
+
+.header-nav {
+  font-size: 45px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
