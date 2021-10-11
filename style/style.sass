@@ -27,15 +27,21 @@ body
         margin-right: 50px
         .header-link
             font-size: $SizeLink
-            @include StyleLink(100px,$c:green ,$txd:none )
+            @include StyleLink(10px,$c:green ,$txd:none )
             
             &:hover
                 color: #000
                 text-decoration: line-through
 .header-container
+    width: 1500px
     @extend %border
     background-color:#ac7a7a
     .header-nav-container
+        width: 960px/1500px *100%
+        border: 2px solid blue
+        .header-nav
+             width: 640px/1500px *100%
+             border: 2px solid green
 main
     
     @extend %border
