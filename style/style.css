@@ -6,32 +6,40 @@
   border: 0;
 }
 
-main, .header-container, .header-nav {
+.header-nav, .header-container, main {
   border: 5px dashed #cc0c0c;
 }
 
 body {
   color: #e76868;
 }
+
 body p {
   color: #000000;
   font-size: 30px;
 }
 
 .header-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .header-nav .header-page {
   border: #000 2px solid;
   margin-right: 50px;
 }
+
 .header-nav .header-page .header-link {
   font-size: 25px;
   font-size: 100px;
   color: green;
   text-decoration: none;
 }
+
 .header-nav .header-page .header-link:hover {
   color: #000;
   text-decoration: line-through;
@@ -40,3 +48,4 @@ body p {
 .header-container {
   background-color: #ac7a7a;
 }
+/*# sourceMappingURL=style.css.map */

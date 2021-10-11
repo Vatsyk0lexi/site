@@ -1,9 +1,41 @@
+@import "rejectstyle.sass"
+// Міксини
+@mixin StyleLink($fz,$c,$txd)
+    font-size: $fz
+    color: $c
+    text-decoration: $txd
+// Константи , змінні
+$SizeLink: 25px
 
-p
-    color:#553
-    font-size: 30px
+//Шаблони
+%border
+    border: 5px dashed #cc0c0c
+    
+
+body
+    color: #e76868
+    
+    p
+        color: #000000
+        font-size: 30px
 .header-nav
-    font-size: 45px
-    color: #000
+    @extend %border
     display: flex
     justify-content: center
+    .header-page
+        border: #000 2px solid
+        margin-right: 50px
+        .header-link
+            font-size: $SizeLink
+            @include StyleLink(100px,$c:green ,$txd:none )
+            
+            &:hover
+                color: #000
+                text-decoration: line-through
+.header-container
+    @extend %border
+    background-color:#ac7a7a
+    .header-nav-container
+main
+    
+    @extend %border

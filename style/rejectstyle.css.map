@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,CAAC,CAAC;EACE,SAAS,EAAE,KAAK;EAChB,OAAO,EAAE,CAAC;EACV,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,MAAM,EAAE,CAAC;CAAG",
+    "sources": [
+        "rejectstyle.sass"
+    ],
+    "names": [],
+    "file": "rejectstyle.css"
+}
