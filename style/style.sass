@@ -9,11 +9,6 @@ $maxWidth: 1280
         font-size: calc(#{$mobSize+px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}))
     @media (min-width: 767px) 
         font-size:  calc(#{$mobSize+px} + #{$addSize} * (100vw  / #{$maxWidth}))
-// Центрування елементів
-    @mixin push--auto 
-    margin: 
-    left: auto
-    right: auto
 // Для псевдоелементів  ::before и ::after
 @mixin pseudo($display: block, $pos: absolute, $content: '')
     content: $content
@@ -39,7 +34,7 @@ body
     .main-page__title
         font-size: 40px
         margin: 0px 0px 20px 0px
-        @include AdaptiveFont(40px,24px)
+        @include AdaptiveFont(40px,24px)   
     .main-page__text
         font-size: 16px
         @include AdaptiveFont(16px,12px)
