@@ -1,6 +1,6 @@
 @import "rejectstyle.sass"
 //------------ Міксини---------------//
-$maxWidth: 1280
+
 // Адаптивний шрифт
 @mixin AdaptiveFont($pcSize,$mobSize) 
     $addSize: $pcSize - $mobSize
@@ -16,9 +16,56 @@ $maxWidth: 1280
     position: $pos
 
 // Константи , змінні
-
+$headerHeight: 6.5em
+$minWidth: 300px
+$maxWidth: 1920px
+$maxWidthContainer: 1170px
+$md1: $maxWidthContainer + 12
+$md2: 991.98
+$md3: 767.98
+$md4: 479.98
 //Шаблони  
 
+img
+    border: 0
+    max-width: 100%
+    vertical-align: middle
+.header
+    height: $headerHeight
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 10
+    background-color: rgba(31, 77, 7, 0.8)
+    &__logo-wrapper
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__logo
+        width: 140px
+        height: 144px
+        position: relative
+        display: block
+        z-index: 3
+        left: 0
+        top: -1px
+        &-img
+            position: relative
+    &__header-up__wrapper
+        height: 1.8em
+        background-color: rgba(0, 0, 0, 0.8)
+        
+    &__header-down__content-area
+        width: 70%
+        margin: 0 auto
+    &__header-down__wrapper
+        height: 4.7em
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__menu
+        padding-right: 10px
 body
     height: 100%
     line-height: 1
@@ -28,8 +75,10 @@ body
         overflow: hidden
 .wrapper
     min-height: 100%
+    overflow: hidden
 
 .main-page
+    margin-top: 25px
     padding: 90px 0px 30px 0px
     .main-page__title
         font-size: 40px
@@ -48,14 +97,20 @@ body
         @include AdaptiveFont(30px,20px)
     .main-page__section
         padding: 30px
-        max-width: 1200px
+        max-width: $maxWidth
         margin: 0px auto
-    .main-page__section_1
+        height: 100vh
+    .main-page__section_news
         background-color: #794f45
-    .main-page__section_2
+
+    .main-page__section_matches
         background-color: #77688d
-    .main-page__section_3
+    .main-page__section_players
         background-color: #7a956b
+    &__section_table
+        background-color: #551b1b
+    &__section_socials
+        background-color: blue
 
 .menu
     &__icon
@@ -76,7 +131,7 @@ body
         position: absolute
         top: 100%
         right: 0
-        background-color: rgba(0, 0, 0, 0.62)
+        background-color: rgba(174, 216, 176, 0.62)
         padding: 15px
         min-width: 200px
         li
@@ -86,20 +141,28 @@ body
     &__sub-link>a
         &:hover
             text-decoration: underline
-        color: #fff       
-@media (max-width: 767px) 
+            color: #fff       
+@media (max-width: 1199px) 
+    .header
+        &__logo-wrapper
+            .header__logo
+                
+            .header__club-name
+                display: none
     .menu
         &__body
             position: fixed
             left: -100%
-            top: 0
-            width: 100%
+            width: 0%
             height: 100%
+            top: 0
             background-color: rgba(0,0,0,0.9)
             padding: 100px 30px 30px 30px
             transition: left 0.3s ease 0s
             overflow: auto
             &._active
+                width: 50%
+                height: 100%
                 left: 0
             &::before
                 content: ""
@@ -107,8 +170,8 @@ body
                 width: 100%
                 top: 0
                 left: 0
-                height: 70px
-                background-color: #006400
+                height: $headerHeight
+                // background-color: #006400
                 z-index: 2
         &__list>li
             flex: wrap
@@ -119,7 +182,7 @@ body
                 .menu__sub-list
                     display: block
         &__link>a 
-            font-size: 24px
+            font-size: 25px
         &__sub-list
             position: relative
             background-color: #fff
@@ -162,6 +225,7 @@ body
             & span
                 top: 50%
                 transform: scale(1) translate(0px, -50%)
+        
 
 
 @media (min-width: 767px)
@@ -215,26 +279,5 @@ body._mobile
                         transform: translate(0px,0px)
                         pointer-events: all
 //--------------//
-.header
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    z-index: 10
-    background-color: #006400
-    &__container
-        max-width: 1200px
-        margin: 0 auto
-        display: flex
-        padding: 0px 30px
-        align-items: center
-        justify-content: space-between
-        min-height: 70px
-    &__logo
-        border-radius: 50%
-        position: relative
-        width: 50px
-        height: 50px
-        z-index: 5
-    &__menu
+
 
