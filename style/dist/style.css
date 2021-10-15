@@ -54,13 +54,36 @@ img {
 .header__logo-img {
   position: relative;
 }
-.header__header-up__wrapper {
-  height: 1.8em;
+.header__header-up {
   background-color: rgba(0, 0, 0, 0.8);
+}
+.header__header-up__content-area {
+  margin: 0 auto;
+  width: 70%;
+  max-width: 1920px;
+  height: 1.8em;
+}
+.header__header-up__wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.header .social-networks {
+  margin-right: 2em;
+  width: 10em;
+}
+.header .social-networks__list {
+  justify-content: space-between;
+  display: flex;
+}
+.header .social-networks__item .social-networks__icon {
+  width: 1em;
+  height: 1.8em;
 }
 .header__header-down__content-area {
   width: 70%;
   margin: 0 auto;
+  max-width: 1920px;
 }
 .header__header-down__wrapper {
   height: 4.7em;
@@ -86,6 +109,16 @@ body._lock {
   overflow: hidden;
 }
 
+.main-page__section_news {
+  background-color: #572c2c;
+}
+
+.main-news {
+  border: 2px solid;
+  width: 250px;
+  height: 500px;
+  margin: 0 auto;
+}
 .main-page {
   margin-top: 25px;
   padding: 90px 0px 30px 0px;
@@ -140,10 +173,6 @@ body._lock {
   padding: 30px;
   max-width: 1920px;
   margin: 0px auto;
-  height: 100vh;
-}
-.main-page .main-page__section_news {
-  background-color: #794f45;
 }
 .main-page .main-page__section_matches {
   background-color: #77688d;
@@ -195,10 +224,6 @@ body._lock {
 }
 
 @media (max-width: 1199px) {
-  .header__logo-wrapper .header__club-name {
-    display: none;
-  }
-
   .menu__body {
     position: fixed;
     left: -100%;
@@ -224,17 +249,20 @@ body._lock {
     height: 6.5em;
     z-index: 2;
   }
-  .menu__list > li {
+  .menu__list {
+    display: flex;
+    flex-direction: column;
     flex: wrap;
     margin: 0px 0px 30px 0px;
   }
-  .menu__list > li last-child {
+  .menu__list last-child {
     margin-bottom: 0;
   }
-  .menu__list > li._active .menu__sub-list {
+  .menu__list._active .menu__sub-list {
     display: block;
   }
   .menu__link > a {
+    margin-top: 35%;
     font-size: 25px;
   }
   .menu__sub-list {

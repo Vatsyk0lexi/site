@@ -20,10 +20,13 @@ $headerHeight: 6.5em
 $minWidth: 300px
 $maxWidth: 1920px
 $maxWidthContainer: 1170px
-$md1: $maxWidthContainer + 12
-$md2: 991.98
-$md3: 767.98
-$md4: 479.98
+$grid-columns: 12 // Set number of columns in the grid  
+$xs-max: 40rem // Set xs breakpoint's max width
+$sm-max: 64rem // Set sm breakpoint's max width
+$md-max: 90rem // Set md breakpoint's max width
+$lg-max: 120rem // Set lg breakpoint's max width
+$gutter: 1rem // Set gutter size
+$content-well-max-width: "none" // Set the max-width of the content well
 //Шаблони  
 
 img
@@ -52,13 +55,31 @@ img
         top: -1px
         &-img
             position: relative
-    &__header-up__wrapper
-        height: 1.8em
+    &__header-up
         background-color: rgba(0, 0, 0, 0.8)
-        
+    &__header-up__content-area
+        margin: 0 auto
+        width: 70%
+        max-width: $maxWidth
+        height: 1.8em
+    &__header-up__wrapper
+        display: flex
+        justify-content: end
+        align-items: center
+    .social-networks
+        margin-right: 2em
+        width: 10em
+        &__list
+            justify-content: space-between
+            display: flex
+        &__item
+            .social-networks__icon
+                width: 1em
+                height: 1.8em
     &__header-down__content-area
         width: 70%
         margin: 0 auto
+        max-width: $maxWidth
     &__header-down__wrapper
         height: 4.7em
         display: flex
@@ -76,6 +97,20 @@ body
 .wrapper
     min-height: 100%
     overflow: hidden
+
+// секція новин
+.main-page
+    &__section
+        &_news
+            background-color: #572c2c
+
+.main-news
+    border: 2px solid
+    width: 250px
+    height: 500px
+    margin: 0 auto
+    &__element__wrapper
+
 
 .main-page
     margin-top: 25px
@@ -99,10 +134,7 @@ body
         padding: 30px
         max-width: $maxWidth
         margin: 0px auto
-        height: 100vh
-    .main-page__section_news
-        background-color: #794f45
-
+        // height: 100vh
     .main-page__section_matches
         background-color: #77688d
     .main-page__section_players
@@ -142,13 +174,7 @@ body
         &:hover
             text-decoration: underline
             color: #fff       
-@media (max-width: 1199px) 
-    .header
-        &__logo-wrapper
-            .header__logo
-                
-            .header__club-name
-                display: none
+@media (max-width: 1199px)
     .menu
         &__body
             position: fixed
@@ -171,9 +197,12 @@ body
                 top: 0
                 left: 0
                 height: $headerHeight
-                // background-color: #006400
+                //background-color: #006400
                 z-index: 2
-        &__list>li
+        &__list
+            display: flex
+            flex-direction: column
+            >li
             flex: wrap
             margin: 0px 0px 30px 0px 
             & last-child
@@ -181,7 +210,8 @@ body
             &._active
                 .menu__sub-list
                     display: block
-        &__link>a 
+        &__link>a
+            margin-top: 35% 
             font-size: 25px
         &__sub-list
             position: relative
