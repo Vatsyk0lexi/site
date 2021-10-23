@@ -18,8 +18,7 @@
 // Константи , змінні
 $headerHeight: 6.5em
 $minWidth: 300px
-$maxWidth: 1920px
-$maxWidthContainer: 1170px
+$maxWidth: 1600px
 $grid-columns: 12 // Set number of columns in the grid  
 $xs-max: 40rem // Set xs breakpoint's max width
 $sm-max: 64rem // Set sm breakpoint's max width
@@ -98,11 +97,6 @@ body
     min-height: 100%
     overflow: hidden
 
-// секція новин
-.main-page
-    &__section
-        &_news
-            //background-color: #572c2c
 
 .main-news
     border: 2px solid
@@ -126,8 +120,7 @@ body
         @media (max-width: 920px)
             min-height: 300px
         &:hover
-            font-size: 25px        
-        
+            font-size: 25px         
         // картинка
         .main-news__element__photo
             width: 100%
@@ -155,32 +148,110 @@ body
             .main-news__element__text-footer
                 color: yellow
 
+// Для зміни контейнерів матчів
+.matches
+    padding: 25px 0px
+    &__content-wrapper
+        
+        .matches__content
+            
+            display: flex
+            justify-content: center
+            .matches__last-match
+                border: 2px solid
+                display: flex
+                flex-direction: column
+                margin-right: 20%
+            .matches__future-match
+                border: 2px solid
+                display: flex
+                flex-direction: column
+
+// Для зміни самої карточки матчів
+.matches__info
+    margin: 0 auto
+    &__tour
+        font-size: 20px
+        letter-spacing: 2px
+    &__date
+        text-align: center
+        color: #000
+.matches__result
+    margin-top: 5%
+    display: flex
+    &__home-team
+        color: green
+        &__content
+        &__team-info
+            display: flex
+            &__team-name
+                align-self: center
+                font-size: 15px
+                color: blue
+            &__team-logo
+                .home-team__icon
+                    width: 98px
+                    height: 98px 
+    &__result
+        display: flex
+        align-items: center
+        &__wrapper
+            border: 2px solid
+            margin: 0px 20px  
+            .matches__result__result__score
+                display: flex
+                .score-left
+                    color: red
+                .score-dot
+                    color: blue
+                .score-right
+                    color: red
+    &__guest-team
+        color: yellow
+        &__content
+
+        &__team-info
+            display: flex
+            flex-wrap: wrap
+            &__team-name
+                font-size: 15px
+                color: #008b51
+                align-self: center
+
+            &__team-logo
+                .guest-team__icon
+                    width: 98px
+                    height: 98px   
+
+
+.tables
+    &__wrapper
+    &__content
+    
+
 
 .main-page
     margin-top: 1%
     padding: 90px 0px 30px 0px
     .main-page__title
         font-size: 40px
-        margin: 0px 0px 20px 0px
-        @include AdaptiveFont(40px,24px)   
     .main-page__text
         font-size: 16px
-        @include AdaptiveFont(16px,12px)
-        line-height: 150%
-        color: white
-        >p
-            margin-bottom: 20px
     .main-page__sub-title
         font-size: 30px
-        margin: 0px 0px 20px 0px
-        @include AdaptiveFont(30px,20px)
     .main-page__section
-        // padding: 30px
         max-width: $maxWidth
         margin: 0px auto
-        // height: 100vh
+        @media (min-width: 900px)
+            max-width: 850px
+        @media (min-width: 1200px)
+            max-width: 1150px
+        @media (min-width: 1400px)
+            max-width: 1350px            
     .main-page__section_matches
         background-color: #77688d
+    .main-page__section_news
+        min-width: 100vw
     .main-page__section_players
         background-color: #7a956b
     &__section_table

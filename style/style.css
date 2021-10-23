@@ -65,7 +65,7 @@ img {
 .header__header-up__content-area {
   margin: 0 auto;
   width: 70%;
-  max-width: 1920px;
+  max-width: 1600px;
   height: 1.8em;
 }
 
@@ -93,7 +93,7 @@ img {
 .header__header-down__content-area {
   width: 70%;
   margin: 0 auto;
-  max-width: 1920px;
+  max-width: 1600px;
 }
 
 .header__header-down__wrapper {
@@ -193,6 +193,112 @@ body._lock {
   color: yellow;
 }
 
+.matches {
+  padding: 25px 0px;
+}
+
+.matches__content-wrapper .matches__content {
+  display: flex;
+  justify-content: center;
+}
+
+.matches__content-wrapper .matches__content .matches__last-match {
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20%;
+}
+
+.matches__content-wrapper .matches__content .matches__future-match {
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.matches__info {
+  margin: 0 auto;
+}
+
+.matches__info__tour {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.matches__info__date {
+  text-align: center;
+  color: #000;
+}
+
+.matches__result {
+  margin-top: 5%;
+  display: flex;
+}
+
+.matches__result__home-team {
+  color: green;
+}
+
+.matches__result__home-team__team-info {
+  display: flex;
+}
+
+.matches__result__home-team__team-info__team-name {
+  align-self: center;
+  font-size: 15px;
+  color: blue;
+}
+
+.matches__result__home-team__team-info__team-logo .home-team__icon {
+  width: 98px;
+  height: 98px;
+}
+
+.matches__result__result {
+  display: flex;
+  align-items: center;
+}
+
+.matches__result__result__wrapper {
+  border: 2px solid;
+  margin: 0px 20px;
+}
+
+.matches__result__result__wrapper .matches__result__result__score {
+  display: flex;
+}
+
+.matches__result__result__wrapper .matches__result__result__score .score-left {
+  color: red;
+}
+
+.matches__result__result__wrapper .matches__result__result__score .score-dot {
+  color: blue;
+}
+
+.matches__result__result__wrapper .matches__result__result__score .score-right {
+  color: red;
+}
+
+.matches__result__guest-team {
+  color: yellow;
+}
+
+.matches__result__guest-team__team-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.matches__result__guest-team__team-info__team-name {
+  font-size: 15px;
+  color: #008b51;
+  align-self: center;
+}
+
+.matches__result__guest-team__team-info__team-logo .guest-team__icon {
+  width: 98px;
+  height: 98px;
+}
+
 .main-page {
   margin-top: 1%;
   padding: 90px 0px 30px 0px;
@@ -200,67 +306,45 @@ body._lock {
 
 .main-page .main-page__title {
   font-size: 40px;
-  margin: 0px 0px 20px 0px;
-}
-
-@media (max-width: 767px) {
-  .main-page .main-page__title {
-    font-size: calc(24pxpx + 27.2px * ((100vw - 320px) / 1920px));
-  }
-}
-
-@media (min-width: 767px) {
-  .main-page .main-page__title {
-    font-size: calc(24pxpx + 16px * (100vw  / 1920px));
-  }
 }
 
 .main-page .main-page__text {
   font-size: 16px;
-  line-height: 150%;
-  color: white;
-}
-
-@media (max-width: 767px) {
-  .main-page .main-page__text {
-    font-size: calc(12pxpx + 6.8px * ((100vw - 320px) / 1920px));
-  }
-}
-
-@media (min-width: 767px) {
-  .main-page .main-page__text {
-    font-size: calc(12pxpx + 4px * (100vw  / 1920px));
-  }
-}
-
-.main-page .main-page__text > p {
-  margin-bottom: 20px;
 }
 
 .main-page .main-page__sub-title {
   font-size: 30px;
-  margin: 0px 0px 20px 0px;
-}
-
-@media (max-width: 767px) {
-  .main-page .main-page__sub-title {
-    font-size: calc(20pxpx + 17px * ((100vw - 320px) / 1920px));
-  }
-}
-
-@media (min-width: 767px) {
-  .main-page .main-page__sub-title {
-    font-size: calc(20pxpx + 10px * (100vw  / 1920px));
-  }
 }
 
 .main-page .main-page__section {
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 0px auto;
+}
+
+@media (min-width: 900px) {
+  .main-page .main-page__section {
+    max-width: 850px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-page .main-page__section {
+    max-width: 1150px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main-page .main-page__section {
+    max-width: 1350px;
+  }
 }
 
 .main-page .main-page__section_matches {
   background-color: #77688d;
+}
+
+.main-page .main-page__section_news {
+  min-width: 100vw;
 }
 
 .main-page .main-page__section_players {
