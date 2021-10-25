@@ -1,3 +1,16 @@
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    // Navigation arrows
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    }
+});
+
+
 const isMobile = {
     Android: function(){
         return navigator.userAgent.match(/Android/i);

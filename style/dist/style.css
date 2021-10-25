@@ -110,17 +110,16 @@ body._lock {
 }
 
 .main-news {
-  border: 2px solid;
   width: 100%;
   height: auto;
   margin: 0 auto;
   display: flex;
-  flex-direction: space-between;
+  justify-content: center;
 }
 .main-news__element__wrapper {
+  width: 100%;
   display: block;
   position: relative;
-  display: block;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
@@ -130,11 +129,13 @@ body._lock {
 @media (min-width: 920px) {
   .main-news__element__wrapper {
     min-height: 500px;
+    max-height: 600px;
   }
 }
 @media (max-width: 920px) {
   .main-news__element__wrapper {
     min-height: 300px;
+    max-height: 400px;
   }
 }
 .main-news__element__wrapper:hover {
@@ -257,7 +258,39 @@ body._lock {
   height: 98px;
 }
 
+.main-page__section_table .tables__wrapper .tables__content {
+  display: flex;
+  justify-content: space-between;
+}
+.main-page__section_table .tables__wrapper .tables__content .table__league-wrapper {
+  margin: 0 auto;
+}
+.main-page__section_table .tables__wrapper .tables__content .table__bombardier-wrapper {
+  display: none;
+}
+.main-page__section_table .tables__wrapper .tables__content .table__assistant-wrapper {
+  display: none;
+}
+.table {
+  border: none;
+  border-collapse: collapse;
+}
+.table .table__head {
+  font-weight: normal;
+  color: #039;
+  padding: 10px 15px;
+}
+.table .table__body > tr:nth-child(2n) {
+  background: #78f39d;
+}
+.table .table__body > tr > td {
+  color: #669;
+  border-top: 1px solid #e8edff;
+  padding: 10px 15px;
+}
+
 .main-page {
+  width: 100vw;
   margin-top: 1%;
   padding: 90px 0px 30px 0px;
 }
@@ -270,29 +303,30 @@ body._lock {
 .main-page .main-page__sub-title {
   font-size: 30px;
 }
-.main-page .main-page__section {
+.main-page .main-page__section__content {
+  background-color: #c4e9a6;
   max-width: 1600px;
   margin: 0px auto;
 }
 @media (min-width: 900px) {
-  .main-page .main-page__section {
+  .main-page .main-page__section__content {
     max-width: 850px;
   }
 }
 @media (min-width: 1200px) {
-  .main-page .main-page__section {
+  .main-page .main-page__section__content {
     max-width: 1150px;
   }
 }
 @media (min-width: 1400px) {
-  .main-page .main-page__section {
+  .main-page .main-page__section__content {
     max-width: 1350px;
   }
 }
 .main-page .main-page__section_matches {
   background-color: #77688d;
 }
-.main-page .main-page__section_news {
+.main-page .main-page__section_news .main-page__section__content {
   min-width: 100vw;
 }
 .main-page .main-page__section_players {
@@ -484,4 +518,15 @@ body._mobile .menu__list > li._active .menu__sub-list {
   visibility: visible;
   transform: translate(0px, 0px);
   pointer-events: all;
+}
+
+.image__slider {
+  padding: 30px 0 70px 0;
+}
+
+.image__slider__image {
+  text-align: center;
+}
+.image__slider__image img {
+  max-width: 100%;
 }

@@ -1,5 +1,15 @@
 "use strict";
 
+var swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
 var isMobile = {
   Android: function Android() {
     return navigator.userAgent.match(/Android/i);
