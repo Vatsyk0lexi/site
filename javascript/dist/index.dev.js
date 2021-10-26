@@ -1,36 +1,6 @@
 "use strict";
 
-var swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  }
-});
-var isMobile = {
-  Android: function Android() {
-    return navigator.userAgent.match(/Android/i);
-  },
-  BlackBerry: function BlackBerry() {
-    return navigator.userAgent.match(/BlackBerry/i);
-  },
-  iOS: function iOS() {
-    return navigator.userAgent.match(/Iphone|Ipad|iPod/i);
-  },
-  Opera: function Opera() {
-    return navigator.userAgent.match(/Opera Mini/i);
-  },
-  Windows: function Windows() {
-    return navigator.userAgent.match(/IEMobile/i);
-  },
-  any: function any() {
-    return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera || isMobile.Windows();
-  }
-};
-
+// Функція яка виявляє мобільний пристрій ОС та розмір екрану, повертає значення тру (мобілка,планшет) або фолс(пк)
 function detectMob() {
   return window.innerWidth <= 900 && window.innerHeight <= 500;
 }
@@ -43,7 +13,8 @@ window.mobileAndTabletCheck = function () {
   })(navigator.userAgent || navigator.vendor || window.opera);
 
   return check;
-};
+}; // функція яка додає до класу BODY клас мобілка або пк
+
 
 if (mobileAndTabletCheck() || detectMob()) {
   document.body.classList.add('_mobile');
@@ -69,25 +40,12 @@ var menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 
 if (menuLinks.length > 0) {
   var onMenuLinkClick = function onMenuLinkClick(e) {
-    var menuLink = e.target;
+    var menuLink = e.target; // коли меню відкрите ( бургер)
 
-    if (menuLink.dataset["goto"] && document.querySelector(menuLink.dataset["goto"])) {
-      var gotoBlock = document.querySelector(menuLink.dataset["goto"]);
-      var scrollTop = html.scrollTop || body && body.scrollTop || 0;
-      scrollTop -= html.clientTop;
-      var gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollTop - document.querySelector('header').offsetHeight; // коли меню відкрите ( бургер)
-
-      if (iconMenu.classList.contains('_active')) {
-        document.body.classList.remove('_lock');
-        iconMenu.classList.remove('_active');
-        menuBody.classList.remove('_active');
-      }
-
-      window.scrollTo({
-        top: gotoBlockValue,
-        behavior: "smooth"
-      });
-      e.preventDefault();
+    if (iconMenu.classList.contains('_active')) {
+      document.body.classList.remove('_lock');
+      iconMenu.classList.remove('_active');
+      menuBody.classList.remove('_active');
     }
   };
 
@@ -106,4 +64,64 @@ if (iconMenu) {
     iconMenu.classList.toggle('_active');
     menuBody.classList.toggle('_active');
   });
-}
+} // Функція слайдер для section Table
+
+
+var swiper = new Swiper('.tables__wrapper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    // булети
+    clickable: true
+  },
+  grabCursor: true,
+  autoPlay: true,
+  autoHeight: true,
+  // кількість елементів в одному слайді
+  slidesPerView: 1,
+  speed: 800,
+  // режим свободи
+  // freeMode: true,
+  // ефект перевертання 
+  effect: 'flip',
+  flipEffect: {
+    // shadow
+    slideShadow: true,
+    limitRotation: true
+  } // adaptive 
+  // breakpoints:{
+  //     480: {
+  //         slidesPerView: 1
+  //     },
+  //     980:{
+  //         slidesPerView: 2
+  //     },
+  //     1300:{
+  //         slidesPerView: 3
+  //     }
+  // }
+
+});
+var swiper2 = new Swiper('.players__wrapper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  grabCursor: true,
+  autoHeight: true,
+  // кількість елементів в одному слайді
+  slidesPerView: 3,
+  speed: 800
+});

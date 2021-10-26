@@ -42,7 +42,7 @@ img
     left: 0
     width: 100%
     z-index: 10
-    background-color: rgba(31, 77, 7, 0.8)
+    background-color: rgb(46, 71, 33)
     &__logo-wrapper
         display: flex
         justify-content: space-between
@@ -58,7 +58,7 @@ img
         &-img
             position: relative
     &__header-up
-        background-color: rgba(0, 0, 0, 0.8)
+        background-color: rgb(0, 0, 0)
     &__header-up__content-area
         margin: 0 auto
         width: 70%
@@ -93,6 +93,7 @@ body
     height: 100%
     line-height: 1
     font-size: 16px
+    background: url('https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg')
     // для бургер меню
     &._lock
         overflow: hidden
@@ -145,13 +146,14 @@ body
             position: absolute
             left: 10px
             bottom: 15%
+            color: #000000
             .main-news__element__text-title
                 font-size: 25px
-                color: green
+                
             .main-news__element__text-body
-                color: red
+                
             .main-news__element__text-footer
-                color: yellow
+                
 
 
     //Секція Матчів
@@ -184,18 +186,19 @@ body
     &__date
         text-align: center
         color: #000
+        letter-spacing: 4px
 .matches__result
     margin-top: 5%
     display: flex
     &__home-team
-        color: green
+        
         &__content
         &__team-info
             display: flex
             &__team-name
                 align-self: center
                 font-size: 15px
-                color: blue
+                
             &__team-logo
                 .home-team__icon
                     width: 98px
@@ -208,14 +211,15 @@ body
             margin: 0px 20px  
             .matches__result__result__score
                 display: flex
+                font-size: 35px
                 .score-left
-                    color: red
+                    
                 .score-dot
-                    color: blue
+                    
                 .score-right
-                    color: red
+                    
     &__guest-team
-        color: yellow
+        
         &__content
 
         &__team-info
@@ -223,14 +227,13 @@ body
             flex-wrap: wrap
             &__team-name
                 font-size: 15px
-                color: #008b51
                 align-self: center
+                
 
             &__team-logo
                 .guest-team__icon
                     width: 98px
                     height: 98px   
-
 
 //Секція Таблиць
 .main-page__section_table
@@ -239,35 +242,71 @@ body
             display: flex
             justify-content: space-between
             .table__league-wrapper
-                margin: 0 auto
                 .table__league     
                     
             .table__bombardier-wrapper
-                display: none
+                
                 .table__bombardier
                     
             .table__assistant-wrapper
-                display: none
+                
                 .table__assistant
                     
 .table
+    min-width: 550px
     border: none
     border-collapse: collapse
+    margin: 0 auto
+    margin-top: 2%
     .table__head
         font-weight: normal
-        color: #039
+        color: #ffc400
         padding: 10px 15px
+        font-size: 20px
         >tr
             >th
     .table__body
         >tr
             &:nth-child(2n)
-                background: #78f39d
+                background: #031802
             >td
-                color: #669
+                color: #ffffff
                 border-top: 1px solid #e8edff
                 padding: 10px 15px
+                text-align: center
+.table__title
+    margin-top: 20px
+    font-size: 30px
+    color: #ffffff
+    text-align: center
+    // Стилі для слайдеру таблиць
+.tables__wrapper
+    .tables__content
+        .table__league-wrapper
+            .table__league-content
 
+        .table__bombardier-wrapper
+            .table__bombardier-content
+
+        .table__assistant-wrapper
+            .table__assistant-content
+
+// Стилі стрілок переключання
+
+.tables__wrapper .swiper-button-prev:after,
+.tables__wrapper .swiper-button-next:after
+    font-size: 50px
+    color: #ffffff
+    position: absolute
+// булети
+.tables__wrapper .swiper-pagination-bullet
+    width: 10px
+    height: 10px
+    background-color: #ffffff
+.tables__wrapper .swiper-pagination
+    top: 100%
+
+// Загальні стилі для секцій
 .main-page
     width: 100vw
     margin-top: 1%
@@ -279,8 +318,9 @@ body
     .main-page__sub-title
         font-size: 30px
     .main-page__section
+        background: url('https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg')
         &__content
-            background-color: #c4e9a6
+            background-color: #ffffff
             max-width: $maxWidth
             margin: 0px auto
             @media (min-width: 900px)
@@ -290,18 +330,24 @@ body
             @media (min-width: 1400px)
                 max-width: 1350px            
     .main-page__section_matches
-        background-color: #77688d
+        .main-page__section__content
+            background-color: #c9af1cc4
     .main-page__section_news
         .main-page__section__content
             min-width: 100vw
-            // max-width: none
     .main-page__section_players
-        background-color: #7a956b
+        background: url('https://koloskovalivka.com/static/img/bg_players.png')
+        .main-page__section__content
+            background: url('https://koloskovalivka.com/static/img/bg_players.png')
+            min-height: 450px
     &__section_table
-        background-color: #551b1b
-    &__section_socials
-        background-color: blue
+        .main-page__section__content
+            min-height: 650px
+            background-color: rgba(0,0,0,0.6)
 
+    &__section_galery
+        
+// МЕНЮ 
 .menu
     &__icon
         display: none
@@ -316,12 +362,15 @@ body
             text-decoration: underline
     &__link>a
         color: #fff
-        font-size: 18px 
+        font-size: 18px
+        &:hover
+                color: #dbfd00
+                transition: 0.5s 
     &__sub-list
         position: absolute
         top: 100%
         right: 0
-        background-color: rgba(174, 216, 176, 0.62)
+        background-color: rgba(0, 0, 0, 0.62)
         padding: 15px
         min-width: 200px
         li
@@ -329,9 +378,11 @@ body
         li-last-child
             margin: 0
     &__sub-link>a
+        color: white
         &:hover
             text-decoration: underline
-            color: #fff       
+            color: #dbc604
+            transition: 0.5s       
 @media (max-width: 1199px)
     .menu
         &__body
@@ -470,11 +521,67 @@ body._mobile
 
 //Секція Підвалу Футера
 
-    // Слайдер клубу
+    // Слайдер галереї клубу
 .image__slider
     padding: 30px 0 70px 0
 .image__slider__image
     text-align: center
     img
         max-width: 100%
+
+// Слайдер гравців
+
+.players__wrapper                           
+    transform: translate(0, 20%) 
+.players__wrapper .swiper-button-prev:after,
+.players__wrapper .swiper-button-next:after
+        font-size: 20px
+        color: #c5b417
+        position: absolute
+
+
+// карточка гравця 
+.card 
+    width: 100%
+    height: 100%
+    max-height: 300px
+    min-width: 300px
+    padding: auto
+    text-align: center
+    background: #242625
+    border-radius: 10px
+    box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f
+    &__container 
+        display: grid
+        width: 100%
+        height: 100%
+        grid-template-columns: 1fr 1fr 1fr
+        align-items: center
+        justify-items: center
+        color: white
+    &__content 
+        width: 90%
+        height: 95%
+        background: #191a19
+        margin: 10px auto
+        border-radius: 5px
+        padding: 20px
+        cursor: pointer
+        box-shadow:  16px 16px 44px #0a0a0a,-16px -16px 44px #282a28
+        transition: 0.3s all ease-in-out
+        &:hover
+            margin-top: -10px
+    &__header 
+        text-transform: uppercase
+        font-size: 20px
+        margin: 40px auto
+    &__button 
+        padding: 10px
+        border-radius: 50px
+        background: #1f75c4
+        color: white
+        font-weight: bold
+        cursor: pointer
+        border: none
+        margin: 50px auto
 

@@ -35,7 +35,7 @@ img {
   left: 0;
   width: 100%;
   z-index: 10;
-  background-color: rgba(31, 77, 7, 0.8);
+  background-color: #2e4721;
 }
 .header__logo-wrapper {
   display: flex;
@@ -55,7 +55,7 @@ img {
   position: relative;
 }
 .header__header-up {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
 }
 .header__header-up__content-area {
   margin: 0 auto;
@@ -99,6 +99,7 @@ body {
   height: 100%;
   line-height: 1;
   font-size: 16px;
+  background: url("https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg");
 }
 body._lock {
   overflow: hidden;
@@ -159,18 +160,11 @@ body._lock {
   position: absolute;
   left: 10px;
   bottom: 15%;
+  color: #000000;
 }
 .main-news__element__wrapper .main-news__element__text-wrapper .main-news__element__text-title {
   font-size: 25px;
-  color: green;
 }
-.main-news__element__wrapper .main-news__element__text-wrapper .main-news__element__text-body {
-  color: red;
-}
-.main-news__element__wrapper .main-news__element__text-wrapper .main-news__element__text-footer {
-  color: yellow;
-}
-
 .matches {
   padding: 25px 0px;
 }
@@ -200,14 +194,12 @@ body._lock {
 .matches__info__date {
   text-align: center;
   color: #000;
+  letter-spacing: 4px;
 }
 
 .matches__result {
   margin-top: 5%;
   display: flex;
-}
-.matches__result__home-team {
-  color: green;
 }
 .matches__result__home-team__team-info {
   display: flex;
@@ -215,7 +207,6 @@ body._lock {
 .matches__result__home-team__team-info__team-name {
   align-self: center;
   font-size: 15px;
-  color: blue;
 }
 .matches__result__home-team__team-info__team-logo .home-team__icon {
   width: 98px;
@@ -231,18 +222,7 @@ body._lock {
 }
 .matches__result__result__wrapper .matches__result__result__score {
   display: flex;
-}
-.matches__result__result__wrapper .matches__result__result__score .score-left {
-  color: red;
-}
-.matches__result__result__wrapper .matches__result__result__score .score-dot {
-  color: blue;
-}
-.matches__result__result__wrapper .matches__result__result__score .score-right {
-  color: red;
-}
-.matches__result__guest-team {
-  color: yellow;
+  font-size: 35px;
 }
 .matches__result__guest-team__team-info {
   display: flex;
@@ -250,7 +230,6 @@ body._lock {
 }
 .matches__result__guest-team__team-info__team-name {
   font-size: 15px;
-  color: #008b51;
   align-self: center;
 }
 .matches__result__guest-team__team-info__team-logo .guest-team__icon {
@@ -262,31 +241,51 @@ body._lock {
   display: flex;
   justify-content: space-between;
 }
-.main-page__section_table .tables__wrapper .tables__content .table__league-wrapper {
-  margin: 0 auto;
-}
-.main-page__section_table .tables__wrapper .tables__content .table__bombardier-wrapper {
-  display: none;
-}
-.main-page__section_table .tables__wrapper .tables__content .table__assistant-wrapper {
-  display: none;
-}
 .table {
+  min-width: 550px;
   border: none;
   border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 2%;
 }
 .table .table__head {
   font-weight: normal;
-  color: #039;
+  color: #ffc400;
   padding: 10px 15px;
+  font-size: 20px;
 }
 .table .table__body > tr:nth-child(2n) {
-  background: #78f39d;
+  background: #031802;
 }
 .table .table__body > tr > td {
-  color: #669;
+  color: #ffffff;
   border-top: 1px solid #e8edff;
   padding: 10px 15px;
+  text-align: center;
+}
+
+.table__title {
+  margin-top: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.tables__wrapper .swiper-button-prev:after,
+.tables__wrapper .swiper-button-next:after {
+  font-size: 50px;
+  color: #ffffff;
+  position: absolute;
+}
+
+.tables__wrapper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+}
+
+.tables__wrapper .swiper-pagination {
+  top: 100%;
 }
 
 .main-page {
@@ -303,8 +302,11 @@ body._lock {
 .main-page .main-page__sub-title {
   font-size: 30px;
 }
+.main-page .main-page__section {
+  background: url("https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg");
+}
 .main-page .main-page__section__content {
-  background-color: #c4e9a6;
+  background-color: #ffffff;
   max-width: 1600px;
   margin: 0px auto;
 }
@@ -323,22 +325,23 @@ body._lock {
     max-width: 1350px;
   }
 }
-.main-page .main-page__section_matches {
-  background-color: #77688d;
+.main-page .main-page__section_matches .main-page__section__content {
+  background-color: #c9af1cc4;
 }
 .main-page .main-page__section_news .main-page__section__content {
   min-width: 100vw;
 }
 .main-page .main-page__section_players {
-  background-color: #7a956b;
+  background: url("https://koloskovalivka.com/static/img/bg_players.png");
 }
-.main-page__section_table {
-  background-color: #551b1b;
+.main-page .main-page__section_players .main-page__section__content {
+  background: url("https://koloskovalivka.com/static/img/bg_players.png");
+  min-height: 450px;
 }
-.main-page__section_socials {
-  background-color: blue;
+.main-page__section_table .main-page__section__content {
+  min-height: 650px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
 .menu__icon {
   display: none;
 }
@@ -356,11 +359,15 @@ body._lock {
   color: #fff;
   font-size: 18px;
 }
+.menu__link > a:hover {
+  color: #dbfd00;
+  transition: 0.5s;
+}
 .menu__sub-list {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: rgba(174, 216, 176, 0.62);
+  background-color: rgba(0, 0, 0, 0.62);
   padding: 15px;
   min-width: 200px;
 }
@@ -370,9 +377,13 @@ body._lock {
 .menu__sub-list li-last-child {
   margin: 0;
 }
+.menu__sub-link > a {
+  color: white;
+}
 .menu__sub-link > a:hover {
   text-decoration: underline;
-  color: #fff;
+  color: #dbc604;
+  transition: 0.5s;
 }
 
 @media (max-width: 1199px) {
@@ -529,4 +540,65 @@ body._mobile .menu__list > li._active .menu__sub-list {
 }
 .image__slider__image img {
   max-width: 100%;
+}
+
+.players__wrapper {
+  transform: translate(0, 20%);
+}
+
+.players__wrapper .swiper-button-prev:after,
+.players__wrapper .swiper-button-next:after {
+  font-size: 20px;
+  color: #c5b417;
+  position: absolute;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  min-width: 300px;
+  padding: auto;
+  text-align: center;
+  background: #242625;
+  border-radius: 10px;
+  box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f;
+}
+.card__container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  color: white;
+}
+.card__content {
+  width: 90%;
+  height: 95%;
+  background: #191a19;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 16px 16px 44px #0a0a0a, -16px -16px 44px #282a28;
+  transition: 0.3s all ease-in-out;
+}
+.card__content:hover {
+  margin-top: -10px;
+}
+.card__header {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 40px auto;
+}
+.card__button {
+  padding: 10px;
+  border-radius: 50px;
+  background: #1f75c4;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin: 50px auto;
 }
