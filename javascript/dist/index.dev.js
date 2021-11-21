@@ -16,7 +16,7 @@ window.mobileAndTabletCheck = function () {
 }; // функція яка додає до класу BODY клас мобілка або пк
 
 
-if (mobileAndTabletCheck() || detectMob()) {
+if (mobileAndTabletCheck() == true) {
   document.body.classList.add('_mobile');
   var menuArrows = document.querySelectorAll('.menu__arrow');
 
@@ -87,16 +87,16 @@ var swiper = new Swiper('.tables__wrapper', {
   autoHeight: true,
   // кількість елементів в одному слайді
   slidesPerView: 1,
-  speed: 800,
-  // режим свободи
+  speed: 800 // режим свободи
   // freeMode: true,
   // ефект перевертання 
-  effect: 'flip',
-  flipEffect: {
-    // shadow
-    slideShadow: true,
-    limitRotation: true
-  } // adaptive 
+  // effect: 'flip',
+  // flipEffect:{
+  //     // shadow
+  //     slideShadow: true,
+  //     limitRotation: true
+  // },
+  // adaptive 
   // breakpoints:{
   //     480: {
   //         slidesPerView: 1
@@ -123,5 +123,16 @@ var swiper2 = new Swiper('.players__wrapper', {
   autoHeight: true,
   // кількість елементів в одному слайді
   slidesPerView: 3,
-  speed: 800
+  speed: 800,
+  breakpoints: {
+    200: {
+      slidesPerView: 1
+    },
+    600: {
+      slidesPerView: 2
+    },
+    1000: {
+      slidesPerView: 3
+    }
+  }
 });

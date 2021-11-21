@@ -11,9 +11,8 @@ function detectMob() {
   };
 
 // функція яка додає до класу BODY клас мобілка або пк
-if(mobileAndTabletCheck() || detectMob() ){
-    document.body.classList.add('_mobile')
-
+if(mobileAndTabletCheck()==true){
+    document.body.classList.add('_mobile');
     let menuArrows = document.querySelectorAll('.menu__arrow');
     if(menuArrows.length >0){
         for(let index=0;index<menuArrows.length;index++){
@@ -77,12 +76,12 @@ if(menuLinks.length>0){
     // режим свободи
     // freeMode: true,
     // ефект перевертання 
-    effect: 'flip',
-    flipEffect:{
-        // shadow
-        slideShadow: true,
-        limitRotation: true
-    },
+    // effect: 'flip',
+    // flipEffect:{
+    //     // shadow
+    //     slideShadow: true,
+    //     limitRotation: true
+    // },
     // adaptive 
     // breakpoints:{
     //     480: {
@@ -113,4 +112,16 @@ if(menuLinks.length>0){
            // кількість елементів в одному слайді
             slidesPerView: 3,
             speed: 800,
+            
+    breakpoints:{
+        200: {
+            slidesPerView: 1,
+        },
+        600:{
+            slidesPerView: 2
+        },
+        1000:{
+            slidesPerView: 3,
+        }
+    }
     })

@@ -24,17 +24,15 @@ $xs-max: 40rem // Set xs breakpoint's max width
 $sm-max: 64rem // Set sm breakpoint's max width
 $md-max: 90rem // Set md breakpoint's max width
 $lg-max: 120rem // Set lg breakpoint's max width
-$gutter: 1rem // Set gutter size
-$content-well-max-width: "none" // Set the max-width of the content well
 //Шаблони  
-
-.swiper
-
     //Секція Шапки
 img
     border: 0
     max-width: 100%
     vertical-align: middle
+.search-icon
+    width: 1.8em
+    height: 1em
 .header
     height: $headerHeight
     position: fixed
@@ -69,6 +67,7 @@ img
         justify-content: end
         align-items: center
     .social-networks
+        
         margin-right: 2em
         width: 10em
         &__list
@@ -76,10 +75,11 @@ img
             display: flex
         &__item
             .social-networks__icon
-                width: 1em
+                width: 2em
                 height: 1.8em
+                
     &__header-down__content-area
-        width: 70%
+        width: 65%
         margin: 0 auto
         max-width: $maxWidth
     &__header-down__wrapper
@@ -89,6 +89,8 @@ img
         align-items: center
     &__menu
         padding-right: 10px
+        margin: 0 auto
+        padding-top: 3%
 body
     height: 100%
     line-height: 1
@@ -102,6 +104,220 @@ body
     overflow: hidden
 
 
+// МЕНЮ 
+.menu
+    &__icon
+        display: none
+    &__arrow
+        display: none
+    &__list
+        li
+            position: relative
+            margin: 0px 0px 0px 20px
+    &__link
+        &:hover
+            text-decoration: underline
+    &__link>a
+        color: #fff
+        font-size: 18px
+        &:hover
+                color: #dbfd00
+                transition: 0.5s 
+    &__sub-list
+        position: absolute
+        top: 100%
+        right: 0
+        left: 0
+        background-color: rgba(0, 0, 0, 0.62)
+        padding: 15px
+        min-width: 150px
+        li
+            margin: 0px 0px 10px 0px
+            &:last-child
+                margin: 0
+    &__sub-link>a
+        color: white
+        &:hover
+            text-decoration: underline
+            color: #dbc604
+            transition: 0.5s      
+// бургер меню
+@media (max-width: 1200px)
+    .header__search-block
+        display: none
+    .menu__arrow
+        display: block
+        width: 0
+        height: 0
+        position: absolute
+        top: 17%
+        right: 10%
+        transition: transform 0.3s ease 0s
+        border-left: 7px solid transparent
+        border-right: 7px solid transparent
+        border-top: 10px solid #c7fd02
+        margin-left: 20px
+        margin-top: 20px
+    .menu
+        &__body
+            position: fixed
+            left: -100%
+            width: 0%
+            height: 100%
+            top: 0
+            background-color: #222222
+            padding: 100px 30px 30px 30px
+            transition: left 0.3s ease 0s
+            overflow: auto
+            &._active
+                width: 50%
+                height: 100% 
+                left: 0
+                margin-top: $headerHeight
+                @media(max-width: 600px)
+                    width: 80%
+
+            &::before
+                content: ""
+                position: fixed 
+                width: 100%
+                top: 0
+                left: 0
+                height: $headerHeight
+                z-index: 2
+        &__list
+            display: flex
+            flex-direction: column
+            >li
+            flex-wrap: wrap
+            margin: 0px 0px 30px 0px 
+            & last-child
+                margin-bottom: 0
+            &._active
+                .menu__sub-list
+                    display: block
+        &__link
+            display: flex
+            flex-direction: column
+            &._active
+                flex-wrap: wrap
+                flex: 1 1 100%
+            >a
+                margin-top: 35% 
+                font-size: 25px
+        &__sub-list
+            position: relative
+            background-color: #222222
+            flex: 1 1 100%
+            margin: 20px 0px 0px 0px
+            
+            display: block
+        &__sub-link
+            justify-content: center
+            a
+                font-size: 20px
+                color: #ffffff
+        &__icon
+            z-index: 5
+            display: block
+            position: absolute
+            right: 0
+            top: 60%
+            left: 80%
+            width: 30px
+            height: 18px
+            cursor: pointer
+            //коли іконка нажата
+            &._active
+                & span 
+                    transform: scale(0) translate(0px,-50%)
+                &::before
+                    top: 50%
+                    transform: rotate(-45deg) translate(0px,-50%)
+                &::after
+                    bottom: 50%
+                    transform: rotate(45deg) translate(0px,50%)
+            & span, &::after, &::before 
+                left: 0
+                position: absolute
+                height: 10%
+                width: 100%
+                transition: all 0.3s ease 0s 
+                background-color: #fff
+            &::before,&::after
+                content: ""
+            &::before
+                top: 0
+            &::after 
+                bottom: 0
+            & span
+                top: 50%
+                transform: scale(1) translate(0px, -50%)
+        
+
+
+@media (min-width: 300px)
+    .menu
+        &__list
+            display: flex
+            align-items: center
+            li
+                padding: 15px 0px
+        &__sub-list
+            transform: translate(0px,10%)
+            opacity: 0
+            visibility: hidden
+            pointer-events: none
+            transition: all 0.3s ease 0s
+//-------РОБОТА З мобільними девайсами та пк-----//
+body._pc
+        .menu__list
+            >li
+                &:hover
+                    .menu__sub-list
+                        opacity: 1
+                        visibility: visible
+                        transform: translate(0px,0px)
+                        pointer-events: all
+body._mobile
+    .menu__arrow
+        display: block
+        width: 0
+        height: 0
+        position: absolute
+        top: 17%
+        right: 10%
+        transition: transform 0.3s ease 0s
+        border-left: 7px solid transparent
+        border-right: 7px solid transparent
+        border-top: 10px solid #c7fd02
+        margin-left: 20px
+        margin-top: 20px
+    .menu__list
+        li 
+            display: flex
+            align-items: center
+    .menu__link
+        flex: 1 1 auto
+
+body._mobile
+        .menu__list
+            >li._active
+                    .menu__arrow
+                        transform: rotate(-180deg)
+                    .menu__sub-list
+                        opacity: 1
+                        visibility: visible
+                        transform: translate(0px,0px)
+                        pointer-events: all
+//--------------//
+
+
+
+
+
+
+
     //Секція Головних Новин
 .main-news
     width: 100%
@@ -111,6 +327,7 @@ body
     justify-content: center
     // контейнер картинки
     &__element__wrapper
+        flex-wrap: wrap
         width: 100%
         display: block
         position: relative
@@ -125,8 +342,12 @@ body
         @media (max-width: 920px)
             min-height: 300px
             max-height: 400px
+            .main-news__element__text-wrapper
+                font-size: 10px
         &:hover
-            font-size: 25px         
+            font-size: 25px
+            .main-news__element__photo
+                transform: scale(1.2)
         // картинка
         .main-news__element__photo
             width: 100%
@@ -138,27 +359,35 @@ body
             position: relative
             overflow: hidden
             transition: 1s
-            &:hover
-                transform: scale(1.2)
         .main-news__element__text-wrapper
-            display: block
+            display: flex
+            flex-direction: column
             z-index: 2
             position: absolute
             left: 10px
             bottom: 15%
             color: #000000
             .main-news__element__text-title
+                align-self: flex-end
                 font-size: 25px
-                
+                width: 30vw
+                line-height: 30px
+                text-align: center
+                margin-bottom: 5%
+                color: #7af500
             .main-news__element__text-body
-                
+                margin-bottom: 5%
+                color: #909090
             .main-news__element__text-footer
-                
+                color: #ffee00
+                text-align: end
+                padding-right: 2%
 
 
     //Секція Матчів
 
 // Для зміни контейнерів матчів
+
 .matches
     padding: 25px 0px
     &__content-wrapper
@@ -167,11 +396,13 @@ body
             
             display: flex
             justify-content: center
+            justify-content: space-around
+            flex-wrap: wrap
             .matches__last-match
                 border: 2px solid
                 display: flex
                 flex-direction: column
-                margin-right: 20%
+                
             .matches__future-match
                 border: 2px solid
                 display: flex
@@ -309,8 +540,10 @@ body
 // Загальні стилі для секцій
 .main-page
     width: 100vw
-    margin-top: 1%
     padding: 90px 0px 30px 0px
+    margin-top: 1%
+    &:last-child
+        padding: 0
     .main-page__title
         font-size: 40px
     .main-page__text     
@@ -333,13 +566,19 @@ body
         .main-page__section__content
             background-color: #c9af1cc4
     .main-page__section_news
+        margin-top: $headerHeight
         .main-page__section__content
             min-width: 100vw
     .main-page__section_players
-        background: url('https://koloskovalivka.com/static/img/bg_players.png')
+        // background: url('https://koloskovalivka.com/static/img/bg_players.png')
+        background-color: rgba(0,0,0,0.6)
         .main-page__section__content
+            min-width: 100vw
+            //min-height: 100vh
+            // background-color: rgba(0,0,0,0.6)
             background: url('https://koloskovalivka.com/static/img/bg_players.png')
             min-height: 450px
+            padding-bottom: 200px
     &__section_table
         .main-page__section__content
             min-height: 650px
@@ -347,179 +586,9 @@ body
 
     &__section_galery
         
-// МЕНЮ 
-.menu
-    &__icon
-        display: none
-    &__arrow
-        display: none
-    &__list
-        li
-            position: relative
-            margin: 0px 0px 0px 20px
-    &__link
-        &:hover
-            text-decoration: underline
-    &__link>a
-        color: #fff
-        font-size: 18px
-        &:hover
-                color: #dbfd00
-                transition: 0.5s 
-    &__sub-list
-        position: absolute
-        top: 100%
-        right: 0
-        background-color: rgba(0, 0, 0, 0.62)
-        padding: 15px
-        min-width: 200px
-        li
-            margin-bottom: 10px
-        li-last-child
-            margin: 0
-    &__sub-link>a
-        color: white
-        &:hover
-            text-decoration: underline
-            color: #dbc604
-            transition: 0.5s       
-@media (max-width: 1199px)
-    .menu
-        &__body
-            position: fixed
-            left: -100%
-            width: 0%
-            height: 100%
-            top: 0
-            background-color: rgba(0,0,0,0.9)
-            padding: 100px 30px 30px 30px
-            transition: left 0.3s ease 0s
-            overflow: auto
-            &._active
-                width: 50%
-                height: 100%
-                left: 0
-            &::before
-                content: ""
-                position: fixed 
-                width: 100%
-                top: 0
-                left: 0
-                height: $headerHeight
-                //background-color: #006400
-                z-index: 2
-        &__list
-            display: flex
-            flex-direction: column
-            >li
-            flex: wrap
-            margin: 0px 0px 30px 0px 
-            & last-child
-                margin-bottom: 0
-            &._active
-                .menu__sub-list
-                    display: block
-        &__link>a
-            margin-top: 35% 
-            font-size: 25px
-        &__sub-list
-            position: relative
-            background-color: #fff
-            flex: 1 1 100%
-            margin: 20px 0px 0px 0px
-            display: none
-        &__sub-link>a
-            font-size: 20px
-            background-color: #000
-        &__icon
-            z-index: 5
-            display: block
-            position: relative
-            width: 30px
-            height: 18px
-            cursor: pointer
-            //коли іконка нажата
-            &._active
-                & span 
-                    transform: scale(0) translate(0px,-50%)
-                &::before
-                    top: 50%
-                    transform: rotate(-45deg) translate(0px,-50%)
-                &::after
-                    bottom: 50%
-                    transform: rotate(45deg) translate(0px,50%)
-            & span, &::after, &::before 
-                left: 0
-                position: absolute
-                height: 10%
-                width: 100%
-                transition: all 0.3s ease 0s 
-                background-color: #fff
-            &::before,&::after
-                content: ""
-            &::before
-                top: 0
-            &::after 
-                bottom: 0
-            & span
-                top: 50%
-                transform: scale(1) translate(0px, -50%)
-        
 
 
-@media (min-width: 767px)
-    .menu
-        &__list
-            display: flex
-            align-items: center
-            li
-                padding: 15px 0px
-        &__sub-list
-            transform: translate(0px,10%)
-            opacity: 0
-            visibility: hidden
-            pointer-events: none
-            transition: all 0.3s ease 0s
-//-------РОБОТА З мобільними девайсами та пк-----//
-body._pc
-        .menu__list
-            >li
-                &:hover
-                    .menu__sub-list
-                        opacity: 1
-                        visibility: visible
-                        transform: translate(0px,0px)
-                        pointer-events: all
-body._mobile
-    .menu__arrow
-        display: block
-        width: 0
-        height: 0
-        transition: transform 0.3s ease 0s
-        border-left: 5px solid transparent
-        border-right: 5px solid transparent
-        border-top: 10px solid #fff
-        margin-left: 5px
-    .menu__list
-        li 
-            display: flex
-            align-items: center
-    .menu__link
-        flex: 1 1 auto
 
-body._mobile
-        .menu__list
-            >li._active
-                    .menu__arrow
-                        transform: rotate(-180deg)
-                    .menu__sub-list
-                        opacity: 1
-                        visibility: visible
-                        transform: translate(0px,0px)
-                        pointer-events: all
-//--------------//
-
-//Секція Підвалу Футера
 
     // Слайдер галереї клубу
 .image__slider
@@ -544,13 +613,12 @@ body._mobile
 .card 
     width: 100%
     height: 100%
-    max-height: 300px
-    min-width: 300px
+    min-width: 400px
     padding: auto
     text-align: center
-    background: #242625
-    border-radius: 10px
-    box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f
+    background: #ffffff
+    border-radius: 15px
+    box-shadow: 25px 25px 50px #fffcf78e, -25px -25px 50px #fff8ea8e
     &__container 
         display: grid
         width: 100%
@@ -560,28 +628,102 @@ body._mobile
         justify-items: center
         color: white
     &__content 
-        width: 90%
+        width: 95%
         height: 95%
-        background: #191a19
+        background-color: #292626
         margin: 10px auto
         border-radius: 5px
         padding: 20px
-        cursor: pointer
         box-shadow:  16px 16px 44px #0a0a0a,-16px -16px 44px #282a28
         transition: 0.3s all ease-in-out
         &:hover
-            margin-top: -10px
-    &__header 
-        text-transform: uppercase
+            width: 100%
+            margin-top: -1px
+    
+        
+    &__player-photo
+
+    &__player
+        &-name 
+            text-transform: uppercase
+            font-size: 25px
+            margin: 0 auto
+        &-information
+            margin-top: 10%
+            display: flex
+            justify-content: space-around
+        &-statystic
+            margin-top: 10%
+            text-transform: uppercase
+            font-size: 15px
+            display: flex
+            justify-content: space-around
+            .statystic
+        .card__button
+            padding: 10px
+            border-radius: 50px
+            background: #fafafa
+            color: black
+            font-weight: bold
+            cursor: pointer
+            border: none
+            margin: 30px 0px auto
+            &:hover
+                background-color: #000000
+                color: #ffffff
+                transition: 0.3s all ease-in-out
+
+//Секція Підвалу Футера
+footer
+    background: #3d7d21
+    border-top: 8px solid #002903
+    // margin-top: 110px
+    height: 100px
+    margin-top: auto
+
+.footer__content
+    padding: 0 20px
+    height: 100%
+    min-width: 320px
+    width: 100%
+    margin: 0 auto
+    max-width: $maxWidth
+.footer__items
+    display: flex
+    text-transform: uppercase
+    justify-content: space-between
+    height: 100%
+    align-items: center
+    .footer__copyright
+        @media (max-width: 900px) 
+            display: none
+    .footer__logo-wrapper
+        position: relative
+        width: 33.3%
+        text-align: center
+        height: 0
+        >a
+            height: 0
+            display: block
+            .footer__logo
+                position: absolute
+                height: 150px
+                left: 39%
+                top: -100px
+                @media (max-width: 900px) 
+                    position: relative
+                    left: 100%
+                    top: -100px
+    .footer__rights
         font-size: 20px
-        margin: 40px auto
-    &__button 
-        padding: 10px
-        border-radius: 50px
-        background: #1f75c4
-        color: white
-        font-weight: bold
-        cursor: pointer
-        border: none
-        margin: 50px auto
+        @media (max-width: 900px) 
+            display: none
+.wrapper
+    display: flex
+    flex-direction: column
+    min-height: 100%
+main
+    flex: 1 1 auto
+
+
 
