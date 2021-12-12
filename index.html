@@ -5,39 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    
+    <link rel="stylesheet" href="style/preloader.css">
     
     <title>FC Prut</title>
 </head>
 <body>
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <img src="https://i.gifer.com/3F3F.gif" alt="" class="preloader__gif">
+            <div class="preloader__text">Завантаження</div>
+        </div>
+    </div>
     <div class="wrapper">
         <header class="header">
             <div class="header__header-up">
                 <div class="header__header-up__content-area">
                     <div class="header__header-up__wrapper">
-                        <div class="social-networks">
-                            <ul class="social-networks__list">
-                                <li>
-                                    <a href="" class="social-networks__item">
-                                        <img src="src/images/design-pictures/free-icon-instagram-1384031.png" alt="Instagram" class="social-networks__icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="social-networks__item">
-                                        <img src="src/images/design-pictures/free-icon-facebook-747374.png" alt="Facebook" class="social-networks__icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="social-networks__item">
-                                        <img src="src/images/design-pictures/free-icon-youtube-733646.png" alt="Telegram" class="social-networks__icon">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="header__search-block">
-                            <form action="" method="get">
-                                <input name="s" placeholder="Шукати тут..." type="search">
-                                <button type="submit"><img src="/site/src/images/design-pictures/search.png" alt="" class="search-icon"></button>
+                        <div class="header-search-form">
+                            <form action="/search/" id="mobile-search-form" class="search-form">
+                                <input type="text" name="q" class="form-control header-mobile__search-control" value="" placeholder="Введіть пошукову фразу...">
+                                <button type="submit" class="header-mobile__search-submit"><img src="https://cdn-icons-png.flaticon.com/512/1086/1086916.png" style="width: 25px; height:25px"></img></button>
                             </form>
                         </div>
                     </div>
@@ -48,7 +35,7 @@
                     <div class="header__header-down__wrapper">
                         <div class="header__logo-wrapper">
                             <div class="header__logo">
-                                <a href="#">
+                                <a href="/site/index.html">
                                     <img  src="src\images\design-pictures\лого.png" alt="logotype FC PRUT" class="header__logo-img">
                                 </a>
                             </div>
@@ -59,23 +46,22 @@
                             </div>
                             <nav class="menu__body">
                                 <ul class="menu__list">
-                                    <li class="menu__link" ><a href="">Головна</a></li>
-                                    <li class="menu__link" data-goto = ".main-page__section_news"><a href="/site/pages/test.html">Новини</a></li>
-                                    <li class="menu__link" data-goto = ".main-page__section_team"><a href="">Команда</a></li>
-                                    <li class="menu__link" data-goto = ".main-page__section_mathes"><a href="">Матчі</a></li>
-                                    <li class="menu__link"><a href="">Галерея</a></li>
+                                    <li class="menu__link" ><a href="/site/index.html">Головна</a></li>
+                                    <li class="menu__link"><a href="/site/pages/news.html">Новини</a></li>
+                                    <li class="menu__link"><a href="/site/pages/team.html">Команда</a></li>
+                                    <li class="menu__link"><a href="/site/pages/matches.html">Матчі</a></li>
                                     <li class="menu__link">
-                                        <a href="">Клуб</a>
+                                        <a href="/site/pages/club.html">Клуб</a>
                                         <span class="menu__arrow"></span>
                                         <ul class="menu__sub-list">
                                             <li class="menu__sub-link">
-                                                <a href="">Історія</a>
+                                                <a href="/site/pages/club-history.html">Історія</a>
                                             </li>
                                             <li class="menu__sub-link">
-                                                <a href="">Керівництво</a>
+                                                <a href="/site/pages/club-chiefs.html">Керівництво</a>
                                             </li>
                                             <li class="menu__sub-link">
-                                                <a href="">Нагороди</a>
+                                                <a href="/site/pages/club-achievements.html">Нагороди</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -87,143 +73,139 @@
             </div>
         </header>
         <main>
+            
             <div class="main-page">
-                <section class="main-page__section main-page__section_news">
+                <section class="main-page__section main-page__section_news block_below_header">
                     <div class="main-page__section__content">
                         <div class="main-news">
-                            <a href="#" class="main-news__element__wrapper">
-                                <img src="/site\src\images\test\128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp" alt="main_news_1" class="main-news__element__photo">
+                            <a href="#" class="main-news__element__wrapper" id="first_news">
+                                <img src="https://scontent.fdnk6-2.fna.fbcdn.net/v/t39.30808-6/p720x720/254679758_948620389072756_5345283331169823165_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=IXc-ELbGXaUAX-ixUcm&_nc_ht=scontent.fdnk6-2.fna&oh=2e96e91cf7852cd559df373a37f06d2b&oe=61B6EA68" alt="main_news_1" class="photo">
                                 <!-- <picture class="main-news__element__photo">
                                     <source media="(min-width: 1340px )" srcset="/src/images/test/128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp">
                                     <source media="(max-width: 920px )" srcset="">
                                     <source media="(min-width: 920px )" srcset="">
                                 </picture> -->
                                 <span class="main-news__element__text-wrapper">
-                                    <span class="main-news__element__text-title">Заголовок Новини</span>
-                                    <span class="main-news__element__text-body">Опис новини: Lorem ipsum dolor sit amet consectetur  aliquam tempora.</span>
-                                    <span class="main-news__element__text-footer">dd/mm/yyyy </span>
+                                    <div class="main-news__element__text-title">ФК ПРУТ ЗДОБУВ ПЕРЕМОГУ НАД ФК ПРОМЕТЕЙ</div>
+                                    <span class="main-news__element__text-body">Прут здобув впевнено перемогу над лідером таблиці, дублем відзначився Гуменюк Тарас!</span>
+                                    <div class="main-news__element__text-footer"><img src="/site/src/images/design-pictures/calendar.png" style="width: 20px; height: 20px;" alt=""><span class="news__data">7 листопада 2021 р.</span> </div>
                                 </span>
                             </a>
-                            <a href="" class="main-news__element__wrapper">
-                                <img src="\site\src\images\test\128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp" alt="main_news_2" class="main-news__element__photo">
+                            <a href="" class="main-news__element__wrapper" id="second_news">
+                                <img src="https://www.desna.football/wp-content/uploads/2021/12/IMG_6096-825x510.jpg" alt="main_news_2" class="photo">
                                 <!-- <picture class="main-news__element__photo">
                                     <source media="(min-width: 1300px )" srcset="/src/images/test/128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp">
                                     <source media="(max-width: 920px )" srcset="">
                                     <source media="(min-width: 920px )" srcset="">
                                 </picture> -->
                                 <span class="main-news__element__text-wrapper">
-                                    <span class="main-news__element__text-title">Заголовок Новини 2</span>
-                                    <span class="main-news__element__text-body">Опис новини: Lorem ipsum dolor sit amet consectetur  aliquam tempora.</span>
-                                    <span class="main-news__element__text-footer">dd/mm/yyyy</span>
+                                    <span class="main-news__element__text-title">ФК ПРУТ ЗІГРАВ В НІЧИЮ ПРОТИ ФК ТЕМП</span>
+                                    <span class="main-news__element__text-body">Прут відібрав очки у лідера таблиці! Билися на рівних.</span>
+                                    <div class="main-news__element__text-footer"><img src="/site/src/images/design-pictures/calendar.png" style="width: 20px; height: 20px;" alt=""><span class="news__data">31 жовтня 2021 р.</span> </div>
                                 </span>
                             </a>
-                            <a href="" class="main-news__element__wrapper">
-                                <img src="\site\src\images\test\128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp" alt="main_news_3" class="main-news__element__photo">
+                            <a href="" class="main-news__element__wrapper" id="third_news">
+                                <img src="https://24tv.ua/resources/photos/news/1200x675_DIR/202010/1435312.jpg" alt="main_news_3" class="photo">
                                 <!-- <picture class="main-news__element__photo">
                                     <source media="(min-width: 1300px )" srcset="/src/images/test/128551043_881524515580499_7478497845529110109_o_jlWf7Es-thumbnail_webp-1150x610-70.webp">
                                     <source media="(max-width: 920px )" srcset="">
                                     <source media="(min-width: 920px )" srcset="">
                                 </picture> -->
                                 <span class="main-news__element__text-wrapper">
-                                    <span class="main-news__element__text-title">Заголовок Новини 3</span>
-                                    <span class="main-news__element__text-body">Опис новини: Lorem ipsum dolor sit amet consectetur  aliquam tempora.</span>
-                                    <span class="main-news__element__text-footer">dd/mm/yyyy</span>
+                                    <span class="main-news__element__text-title">ОЛЕКСАНДРА ТАРНОВЕЦЬКОГО ЗАБРАЛИ В АРМІЮ</span>
+                                    <span class="main-news__element__text-body">Гравець ФК ПРУТ - Олександр Тарновецький, відправився служити! Це досить вагома втрата у центрі півзахисту.</span>
+                                    <div class="main-news__element__text-footer"><img src="/site/src/images/design-pictures/calendar.png" style="width: 20px; height: 20px;" alt=""><span class="news__data">21 жовтня 2021 р.</span> </div>
                                 </span>
                             </a>
                         </div>
                     </div>
                 </section>
 
-                <section class="main-page__section main-page__section_matches">
-                    <div class="main-page__section__content">
+                <section class="main-page__section main-page__section_matchesAndTable" style="width: 100vw;">
+                    <div class="content">
                         <div class="matches">
                             <div class="matches__content-wrapper">
                                 <div class="matches__content">
-                                    <div class="matches__last-match">
+
+                                    <div class="match matches__last-match ">
                                         <div class="matches__info">
                                             <div class="matches__info__tour">
-                                                Обласна Ліга 8-й ТУР
+                                                Першість області(2ліга)
                                             </div>
+                                            <div class="matches__info__tour tour">12-й тур</div>
                                             <div class="matches__info__date">
-                                                24.10.2021 
+                                                31.12.2021 
                                             </div>
                                         </div>
                                         <div class="matches__result">
-                                            <div class="matches__result__home-team">
-                                                <div class="matches__result__home-team__content">
-                                                    <div class="matches__result__home-team__team-info">
-                                                        <div class="matches__result__home-team__team-info__team-name">
+                                            <div class="team home__team">
+                                                <div class="team__content">
+                                                        <div class="team__name">
+                                                            ФК Темп
+                                                        </div>
+                                                        <div class="team__logo_wrapper">
+                                                            <img src="/site/src/images/design-pictures/Темп_Заболотів.png" alt="Домашня команда" class="team__logo">
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="result__wrapper">
+                                                <div class="result">
+                                                        <div class="score score-left"><p>0</p></div>
+                                                        <div class="dot">:</div>
+                                                        <div class="score score-right"><p>0</p></div>
+                                                </div>
+                                            </div>
+                                            <div class="team guest__team">
+                                                <div class="team__content">
+                                                        <div class="team__name">
                                                             ФК ПРУТ
                                                         </div>
-                                                        <div class="matches__result__home-team__team-info__team-logo">
-                                                            <img src="/site\src\images\design-pictures\лого.png" alt="Домашня команда" class="home-team__icon">
+                                                        <div class="team__logo_wrapper">
+                                                            <img src="/site\src\images\design-pictures\лого.png" alt="Домашня команда" class="team__logo">
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="matches__result__result">
-                                                <div class="matches__result__result__wrapper">
-                                                    <div class="matches__result__result__score">
-                                                        <div class="score-left">1</div>
-                                                        <div class="score-dot">:</div>
-                                                        <div class="score-right">1</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="matches__result__guest-team">
-                                                <div class="matches__result__guest-team__content">
-                                                    <div class="matches__result__guest-team__team-info">
-                                                        <div class="matches__result__guest-team__team-info__team-name">
-                                                            ФК БЕСКИД
-                                                        </div>
-                                                        <div class="matches__result__guest-team__team-info__team-logo">
-                                                            <img src="/site\src\images\design-pictures\лого.png" alt="Гостьова команда" class="guest-team__icon">
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="matches__future-match">
+
+
+                                    <div class="match matches__future-match ">
                                         <div class="matches__info">
                                             <div class="matches__info__tour">
-                                                Обласна Ліга 9-й ТУР
+                                                Першість області(2ліга)
                                             </div>
+                                            <div class="matches__info__tour tour">13-й тур</div>
                                             <div class="matches__info__date">
-                                                31.10.2021 
+                                                07.11.2021 
                                             </div>
                                         </div>
                                         <div class="matches__result">
-                                            <div class="matches__result__home-team">
-                                                <div class="matches__result__home-team__content">
-                                                    <div class="matches__result__home-team__team-info">
-                                                        <div class="matches__result__home-team__team-info__team-name">
-                                                            ФК Угорники
+                                            <div class="team home__team">
+                                                <div class="team__content">
+                                                        <div class="team__name">
+                                                            ФК Прометей
                                                         </div>
-                                                        <div class="matches__result__home-team__team-info__team-logo">
-                                                            <img src="/site\src\images\design-pictures\лого.png" alt="Домашня команда" class="home-team__icon">
+                                                        <div class="team__logo_wrapper">
+                                                            <img src="/site\src\images\design-pictures/Прометей(Матеївці).png" alt="Домашня команда" class="team__logo">
                                                         </div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="matches__result__result">
-                                                <div class="matches__result__result__wrapper">
-                                                    <div class="matches__result__result__score">
-                                                        <div class="score-left">1</div>
-                                                        <div class="score-dot">:</div>
-                                                        <div class="score-right">1</div>
-                                                    </div>
+                                            <div class="result__wrapper">
+                                                <div class="result">
+                                                        <div class="score score-left"><p>0</p></div>
+                                                        <div class="dot">:</div>
+                                                        <div class="score score-right"><p>2</p></div>
                                                 </div>
                                             </div>
-                                            <div class="matches__result__guest-team">
-                                                <div class="matches__result__guest-team__team-info">
-                                                    <div class="matches__result__guest-team__team-info__team-name">
-                                                        ФК ПРУТ
+                                            <div class="team guest__team">
+                                                <div class="team__content">
+                                                        <div class="team__name">
+                                                            ФК ПРУТ
+                                                        </div>
+                                                        <div class="team__logo_wrapper">
+                                                            <img src="/site\src\images\design-pictures\лого.png" alt="Домашня команда" class="team__logo">
+                                                        </div>
                                                     </div>
-                                                    <div class="matches__result__guest-team__team-info__team-logo">
-                                                        <img src="/site\src\images\design-pictures\лого.png" alt="Гостьова команда" class="guest-team__icon">
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -231,18 +213,14 @@
                             </div>
                         </div>
                     </div>
-                </section>
-
-                <section class="main-page__section main-page__section_table">
-                    <div class="main-page__section__content">
-                        <!-- Slider main container -->
-                        <div class="tables__wrapper swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="tables__content swiper-wrapper">
+                    <div class="content">
+                        
+                        <div class="tables__wrapper">
+                            
+                            <div class="tables__content">
                             <!-- Slides -->
-                            <div class="table__league-wrapper swiper-slide">
+                            <div class="table__league-wrapper">
                                 <div class="table__league-content">
-                                    <h1 class="table__title" >Турнірна таблиця</h1>
                                     <table class="table__league table">
                                         <thead class="table__head">
                                             <tr>
@@ -255,95 +233,97 @@
                                         <tbody class="table__body">
                                             <tr>
                                                 <td>1</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Темп_Заболотів.png" alt=""></figure> Темп (Заболотів) </td>
+                                                <td>13</td>
+                                                <td>31</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Карпати(Болехів).png" alt=""></figure>Карпати (Болехів)</td>
+                                                <td>13</td>
+                                                <td>28</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Обрій(чернятин).png" alt=""></figure>Обрій (Чернятин)</td>
+                                                <td>13</td>
+                                                <td>26</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Галич.png" alt=""></figure> ФСК Галич (Галич)</td>
+                                                <td>13</td>
+                                                <td>26</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Прометей(Матеївці).png" alt=""></figure>Прометей (Матеївці)</td>
+                                                <td>13</td>
+                                                <td>24</td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Гуцульщина(Косів).png" alt=""></figure>Гуцульщина (Косів)</td>
+                                                <td>13</td>
+                                                <td>23</td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Карпати(ст богородчани).png" alt=""></figure>Карпати (Старі Богородчани)</td>
+                                                <td>13</td>
+                                                <td>23</td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/лого.png" alt=""> </figure>Прут (Делятин)</td>
+                                                <td>13</td>
+                                                <td>21</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Хутровик(Чрнятин_).png" alt=""></figure>Хутровик (Тисмениця)</td>
+                                                <td>13</td>
+                                                <td>15</td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Микуличин.png" alt=""></figure>Микуличин (Яремче)</td>
+                                                <td>13</td>
+                                                <td>14</td>
                                             </tr>
                                             <tr>
                                                 <td>11</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Богородчани.png" alt=""></figure>СФК Богородчани (Богородчани)</td>
+                                                <td>13</td>
+                                                <td>13</td>
                                             </tr>
                                             <tr>
                                                 <td>12</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Придністровя_прибиль.png" alt=""></figure>Придністров'я (Прибилів)</td>
+                                                <td>13</td>
+                                                <td>9</td>
                                             </tr>
                                             <tr>
                                                 <td>13</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Краснопіль.png" alt=""></figure>Краснопіль (Солотвин)</td>
+                                                <td>13</td>
+                                                <td>3</td>
                                             </tr>
                                             <tr>
                                                 <td>14</td>
-                                                <td>Comand_name</td>
-                                                <td>10</td>
-                                                <td>00</td>
+                                                <td><figure class="team__logo_table"><img  src="/site/src/images/design-pictures/Пістинь_Кремінь.png" alt=""></figure>Кремінь (Пістинь)</td>
+                                                <td>13</td>
+                                                <td>3</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>    
                             </div>
+                            <div class="tables-statystic swiper">
+                            <div class="table-statystic-wrapper swiper-wrapper">
                             <div class="table__bombardier-wrapper swiper-slide">
                                 <h1 class="table__title" >Кращі бомбардири</h1>
-                                <table class="table__bombardier table">
+                                <table class="table__bombardier table ">
                                     <thead class="table__head">
                                         <th>М</th>
                                         <th>№</th>
@@ -487,123 +467,127 @@
                                     </tbody>
                                 </table>
                             </div>
-                            ...
-                            </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-                        
-                            <!-- If we need navigation buttons -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
+                            </div>
+                            </div>
                         </div>
+                    </div>
                     </div>
                 </section>
 
                 <section class="main-page__section main-page__section_players">
-                    <div class="main-page__section__content">
-                        <h1 class="table__title" style="padding-top: 2%;">Гравці</h1>
-                            <!-- Slider main container -->
+                    <div class="content">
+                        <h1 class="players__title">Гравці</h1>
                             <div class="players__wrapper swiper">
-                                <!-- Additional required wrapper -->
                                 <div class="players__content swiper-wrapper">
-                                <!-- Slides -->
                                 <div class="players swiper-slide">
-                                    <div class="card__container">
-                                        <div class="card">
-                                            <div class="card__content">
-                                                <div class="card__player-photo">
-                                                    <img src="/site/src/images/design-pictures/—Pngtree—football player running with ball_5684254.png" alt="player_photo">
+                                    <div class="card">
+                                        <div class="card__content">
+                                            <div class="card__player">
+                                                <div class="front__side">           
+                                                    <div class="card__player-information">
+                                                        <img class="card__player-photo" src="https://koloskovalivka.com/uploads/__sized__/club/clubmember/2021/08/04/novak_2-thumbnail-460x570-70.jpg" alt="player_photo">
+                                                        <div class="card__player-info">
+                                                            <p class="player__name">Вацик Роман</p>
+                                                            <p class="position">Захисник</p>
+                                                            <a href="#" class="card__button">Детальніше</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <span class="card__player">
-                                                    <span class="card__player-name"><p>Гравець</p></span>
-                                                    <span class="card__player-information">
-                                                        <p class="">Позиція</p>
-                                                        <p class="">Номер: 00 </p>
-                                                        <p class="">dd/mm/yyyy</p>
-                                                    </span>
-                                                    <span class="card__player-statystic">
-                                                        <p class="statystic">Матчі: 00</p>
-                                                        <p class="statystic">Голи: 00 </p>
-                                                        <p class="statystic">Асисти: 00</p>
-                                                    </span>
-                                                    <button class="card__button">Детальніше</button>
-                                                </span>
+                                                <div class="back__side">
+                                                    <div class="card__player-data">
+                                                        <div class="players__info-item"><p class="info__item">Номер</p><p class="number">10</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Матчі</p><p class="number">13</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Голи</p><p class="number">2</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Асисти</p><p class="number">4</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Зіграно</p><p class="number">1162хв</p></div>
+                                                        <div class="players__info-item"><p class="info__item">ЖК</p><p class="number">1</p></div>
+                                                    </div>
+                                                    <a href="#" class="card__button">Більше інформації</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>   <div class="players swiper-slide">
-                                    <div class="card__container">
-                                        <div class="card">
-                                            <div class="card__content">
-                                                <div class="card__player-photo">
-                                                    <img src="/site/src/images/design-pictures/—Pngtree—football player running with ball_5684254.png" alt="player_photo">
-                                                </div>
-                                                <span class="card__player">
-                                                    <span class="card__player-name"><p>Гравець</p></span>
-                                                    <span class="card__player-information">
-                                                        <p class="">Позиція</p>
-                                                        <p class="">Номер: 00 </p>
-                                                        <p class="">dd/mm/yyyy</p>
-                                                    </span>
-                                                    <span class="card__player-statystic">
-                                                        <p class="statystic">Матчі: 00</p>
-                                                        <p class="statystic">Голи: 00 </p>
-                                                        <p class="statystic">Асисти: 00</p>
-                                                    </span>
-                                                    <button class="card__button">Детальніше</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   <div class="players swiper-slide">
-                                    <div class="card__container">
-                                        <div class="card">
-                                            <div class="card__content">
-                                                <div class="card__player-photo">
-                                                    <img src="/site/src/images/design-pictures/—Pngtree—football player running with ball_5684254.png" alt="player_photo">
-                                                </div>
-                                                <span class="card__player">
-                                                    <span class="card__player-name"><p>Гравець</p></span>
-                                                    <span class="card__player-information">
-                                                        <p class="">Позиція</p>
-                                                        <p class="">Номер: 00 </p>
-                                                        <p class="">dd/mm/yyyy</p>
-                                                    </span>
-                                                    <span class="card__player-statystic">
-                                                        <p class="statystic">Матчі: 00</p>
-                                                        <p class="statystic">Голи: 00 </p>
-                                                        <p class="statystic">Асисти: 00</p>
-                                                    </span>
-                                                    <button class="card__button">Детальніше</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
                                 </div>
-                                <!-- If we need navigation buttons -->
+                                
+                                <div class="players swiper-slide">
+                                    <div class="card">
+                                        <div class="card__content">
+                                            <div class="card__player">
+                                                <div class="front__side">           
+                                                    <div class="card__player-information">
+                                                        <img class="card__player-photo" src="https://koloskovalivka.com/uploads/__sized__/club/clubmember/2021/08/04/fesiun_2-thumbnail_webp-560x670-70.webp" alt="player_photo">
+                                                        <div class="card__player-info">
+                                                            <p class="player__name">Олександр Тарновецький</p>
+                                                            <p class="position">Півзахисник</p>
+                                                            <a  class="card__button">Детальніше</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="back__side">
+                                                    <div class="card__player-data">
+                                                        <div class="players__info-item"><p class="info__item">Номер</p><p class="number">10</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Матчі</p><p class="number">13</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Голи</p><p class="number">2</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Асисти</p><p class="number">4</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Зіграно</p><p class="number">1162хв</p></div>
+                                                        <div class="players__info-item"><p class="info__item">ЖК</p><p class="number">1</p></div>
+                                                    </div>
+                                                    <a href="#" class="card__button">Більше інформації</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="players swiper-slide">
+                                    <div class="card">
+                                        <div class="card__content">
+                                            <div class="card__player">
+                                                <div class="front__side">           
+                                                    <div class="card__player-information">
+                                                        <img class="card__player-photo" src="https://koloskovalivka.com/uploads/__sized__/club/clubmember/2021/08/04/gavrish_2-thumbnail-460x570-70.jpg" alt="player_photo">
+                                                        <div class="card__player-info">
+                                                            <p class="player__name">Зупник Руслан</p>
+                                                            <p class="position">Захисник</p>
+                                                            <a  class="card__button">Детальніше</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="back__side">
+                                                    <div class="card__player-data">
+                                                        <div class="players__info-item"><p class="info__item">Номер</p><p class="number">10</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Матчі</p><p class="number">13</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Голи</p><p class="number">2</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Асисти</p><p class="number">4</p></div>
+                                                        <div class="players__info-item"><p class="info__item">Зіграно</p><p class="number">1162хв</p></div>
+                                                        <div class="players__info-item"><p class="info__item">ЖК</p><p class="number">1</p></div>
+                                                    </div>
+                                                    <a href="#" class="btn">Більше інформації</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                                 <div class="swiper-button-prev"></div>
                                 <div class="swiper-button-next"></div>
+                                </div>  
+                                </div>
                             </div>
                 </section>
-<!-- 
-                <section class="main-page__section main-page__section_galery">
-                    <div class="main-page__section__content">
-                        <h1 class="main-page__sub-title">Галерея команди</h1>
-                    </div>
-                </section> -->
             </div>
         </main>
         <footer>
+            <div class="footer__logo-wrapper">
+                <a href="/site/index.html" class="footer__logo-wrapper-a">
+                    <img class="footer__logo" src="/site/src/images/design-pictures/лого.png" alt="">
+                </a>
+            </div>
             <div class="footer__content">
                 <div class="footer__items">
                     <div class="footer__copyright">
                         Футбольний клуб ПРУТ 1942
-                    </div>
-                    <div class="footer__logo-wrapper">
-                        <a href="" class="footer__logo-wrapper-a">
-                            <img class="footer__logo" src="/site/src/images/design-pictures/лого.png" alt="">
-                        </a>
                     </div>
                     <div class="footer__rights">
                         Всі права захищені
@@ -614,6 +598,7 @@
     </div>
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="/site/javascript/mainPage.js"></script>
 <script src="javascript/index.js"></script>
 </body>
 </html>

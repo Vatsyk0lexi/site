@@ -34,8 +34,19 @@ if (mobileAndTabletCheck() == true) {
   }
 } else {
   document.body.classList.add('_pc');
-}
+} // header func
 
+
+window.addEventListener('scroll', function (e) {
+  var windowScrollY = window.pageYOffset;
+  var header = document.querySelector(".header");
+
+  if (windowScrollY > 108) {
+    header.classList.add("header__new");
+  } else if (windowScrollY < 108) {
+    header.classList.remove("header__new");
+  }
+});
 var menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 
 if (menuLinks.length > 0) {
@@ -64,10 +75,22 @@ if (iconMenu) {
     iconMenu.classList.toggle('_active');
     menuBody.classList.toggle('_active');
   });
-} // Функція слайдер для section Table
+} // прелоадер
 
 
-var swiper = new Swiper('.tables__wrapper', {
+function loadData() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(resolve, 0);
+  });
+}
+
+loadData().then(function () {
+  var preloaderEl = document.getElementById('preloader');
+  preloaderEl.classList.add('hidden');
+  preloaderEl.classList.remove('visible');
+}); // Функція слайдер для section Table
+
+var swiper = new Swiper('.tables-statystic', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -109,30 +132,4 @@ var swiper = new Swiper('.tables__wrapper', {
   //     }
   // }
 
-});
-var swiper2 = new Swiper('.players__wrapper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  grabCursor: true,
-  autoHeight: true,
-  // кількість елементів в одному слайді
-  slidesPerView: 3,
-  speed: 800,
-  breakpoints: {
-    200: {
-      slidesPerView: 1
-    },
-    600: {
-      slidesPerView: 2
-    },
-    1000: {
-      slidesPerView: 3
-    }
-  }
 });

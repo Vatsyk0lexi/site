@@ -1,4 +1,8 @@
 @import "rejectstyle.sass"   
+@import "pages_style/news/style__page-news"
+@import "pages_style/club-history/style__page-club-history"
+@import "pages_style/team/style__page-team"
+@import "pages_style/matches/style__page-matches"
 //------------ Міксини---------------//
 
 // Адаптивний шрифт
@@ -16,14 +20,15 @@
     position: $pos
 
 // Константи , змінні
-$headerHeight: 6.5em
+$headerHeight: 9.8em
+$headerColor: #1e2024
 $minWidth: 300px
 $maxWidth: 1600px
+$activeButton: #52914d
 $grid-columns: 12 // Set number of columns in the grid  
-$xs-max: 40rem // Set xs breakpoint's max width
-$sm-max: 64rem // Set sm breakpoint's max width
-$md-max: 90rem // Set md breakpoint's max width
-$lg-max: 120rem // Set lg breakpoint's max width
+
+
+
 //Шаблони  
     //Секція Шапки
 img
@@ -34,13 +39,13 @@ img
     width: 1.8em
     height: 1em
 .header
-    height: $headerHeight
     position: fixed
     top: 0
     left: 0
     width: 100%
     z-index: 10
-    background-color: rgb(46, 71, 33)
+    background-color: $headerColor
+    transition: 0.2s ease
     &__logo-wrapper
         display: flex
         justify-content: space-between
@@ -56,32 +61,102 @@ img
         &-img
             position: relative
     &__header-up
-        background-color: rgb(0, 0, 0)
     &__header-up__content-area
         margin: 0 auto
         width: 70%
         max-width: $maxWidth
-        height: 1.8em
+        // height: 1.8em
     &__header-up__wrapper
         display: flex
         justify-content: end
         align-items: center
-    .social-networks
-        
-        margin-right: 2em
-        width: 10em
+        .header-search-form
+            -webkit-tap-highlight-color: rgba(0,0,0,0)
+            color: #333333
+            font-size: 15px
+            line-height: 26px
+            font-family: "Ubuntu", sans-serif
+            text-align: right
+            box-sizing: border-box
+            padding: 24px 0
+            overflow: hidden
+            transition: all 0.4s ease-in-out
+            position: relative
+            z-index: 1
+            background-color: #1e2024
+            vertical-align: top
+            display: inline-block
+            .search-form
+                position: relative
+                input.header-mobile__search-control
+                    background-color: #292c31
+                    border-color: #292c31
+                    border-radius: 20px
+                    height: 38px
+                    padding: 6px 60px 6px 20px
+                    font-size: 12px
+                .form-control 
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    appearance: none
+                    height: 52px
+                    padding: 12px 16px
+                    line-height: 1.733333
+                    font-size: 15px
+                    color: #31404b
+                    background-color: #fff
+                    border: 1px solid #e4e7ed
+                    border-radius: 2px
+                    box-shadow: none
+                    -webkit-transition: border-color ease-in-out .15s
+                    transition: border-color ease-in-out .15s
+                .header-mobile__search-submit 
+                    background: none
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 51px
+                    height: 38px
+                    line-height: 38px
+                    padding: 0
+                    border: none
+                    font-size: 16px
+                    color: #fff
+                    -webkit-transition: color, background-color 0.3s ease
+                    transition: color, background-color 0.3s ease
+                    border-radius: 0 20px 20px 0
+                    &:hover
+                        background-color: rgba(1,1 ,1 ,0.5 )
         &__list
             justify-content: space-between
-            display: flex
-        &__item
-            .social-networks__icon
-                width: 2em
-                height: 1.8em
-                
+            display: flex            
     &__header-down__content-area
+        background-color: #292c31
         width: 65%
         margin: 0 auto
         max-width: $maxWidth
+        height: 4.5em
+        &::before
+            content: ""
+            position: absolute
+            display: block
+            top: 0
+            bottom: 0
+            width: 210px
+            background-color: #1e2024
+            left: 15%
+            margin-left: 0
+            transform: skew(-25deg)
+        &::after
+            content: ""
+            position: absolute
+            display: block
+            bottom: 0
+            width: 20%
+            height: 4.5em
+            background-color: #292c31
+            right: 0
+            margin-left: 0
     &__header-down__wrapper
         height: 4.7em
         display: flex
@@ -90,19 +165,79 @@ img
     &__menu
         padding-right: 10px
         margin: 0 auto
-        padding-top: 3%
+        
+        .menu__body
+            .menu__list
+                .menu__link
+                    a
+                        display: block
+                        position: relative
+                        color: #fff
+                        padding: 0 27px
+                        line-height: 62px
+                        text-decoration: none
+                        position: relative
+                        font-family: 700
+                        font-size: 12px
+                        font-family: "Ubuntu", sans-serif
+                        text-transform: uppercase
+                        -webkit-transition: color 0.3s ease
+                        transition: color 0.3s ease
+                        &:hover
+                            background-color: $activeButton
+                            transition: background-color 0.3s ease
+                    .menu__sub-list
+                        
+                        .menu__sub-link
+                            a
+                                border-bottom: 1px solid
+                            a:hover
+                                background: none
+                                color: #ccbf06
+                                transition: .4s
+    // Хедер при прокрутці
+.header__new
+    height: 4.5em
+    background-color: rgba(0,0,0,.75)
+    .header__header-up
+        display: none
+    .header__header-down
+        .header__header-down__content-area
+            background: none
+            &::before,&::after
+                background: none
+            .header__header-down__wrapper
+                height: 4em
+                .header__logo-wrapper
+                    .header__logo
+                        top: 2.40em
+                        .header__logo-img
+                            width: 4.5em
+                            height: 4.5em
+                .header__menu
+                    padding-top: 0
+                    ._active:not(.menu__icon)
+                        margin-top: 4em 
+
+.block_below_header
+    margin-top: $headerHeight
+
+
 body
-    height: 100%
+    height: 100vh
     line-height: 1
     font-size: 16px
-    background: url('https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg')
+    background-color: #f4f4f4
+    // background: url('https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg')
     // для бургер меню
     &._lock
         overflow: hidden
 .wrapper
     min-height: 100%
-    overflow: hidden
-
+    display: flex
+    flex-direction: column
+main
+    flex: 1 1 auto
 
 // МЕНЮ 
 .menu
@@ -116,31 +251,25 @@ body
             margin: 0px 0px 0px 20px
     &__link
         &:hover
-            text-decoration: underline
     &__link>a
         color: #fff
         font-size: 18px
         &:hover
-                color: #dbfd00
-                transition: 0.5s 
+            
     &__sub-list
         position: absolute
-        top: 100%
         right: 0
         left: 0
-        background-color: rgba(0, 0, 0, 0.62)
-        padding: 15px
-        min-width: 150px
+        background-color: $headerColor
+        min-width: 200px
+        z-index: 5
         li
-            margin: 0px 0px 10px 0px
+            margin: 0px 0px 0px 0px
             &:last-child
                 margin: 0
-    &__sub-link>a
-        color: white
-        &:hover
-            text-decoration: underline
-            color: #dbc604
-            transition: 0.5s      
+        .menu__sub-link>a
+            &:hover
+                background: none
 // бургер меню
 @media (max-width: 1200px)
     .header__search-block
@@ -165,7 +294,7 @@ body
             width: 0%
             height: 100%
             top: 0
-            background-color: #222222
+            background-color: $headerColor
             padding: 100px 30px 30px 30px
             transition: left 0.3s ease 0s
             overflow: auto
@@ -210,13 +339,10 @@ body
             background-color: #222222
             flex: 1 1 100%
             margin: 20px 0px 0px 0px
-            
+            border: 0.5px solid yellow
             display: block
         &__sub-link
-            justify-content: center
-            a
-                font-size: 20px
-                color: #ffffff
+            justify-content: start
         &__icon
             z-index: 5
             display: block
@@ -261,8 +387,6 @@ body
         &__list
             display: flex
             align-items: center
-            li
-                padding: 15px 0px
         &__sub-list
             transform: translate(0px,10%)
             opacity: 0
@@ -285,14 +409,12 @@ body._mobile
         width: 0
         height: 0
         position: absolute
-        top: 17%
-        right: 10%
         transition: transform 0.3s ease 0s
         border-left: 7px solid transparent
         border-right: 7px solid transparent
-        border-top: 10px solid #c7fd02
-        margin-left: 20px
-        margin-top: 20px
+        border-top: 10px solid #fefff9
+        top: 22.5%
+        left: 55%
     .menu__list
         li 
             display: flex
@@ -313,43 +435,63 @@ body._mobile
 //--------------//
 
 
-
-
-
-
-
     //Секція Головних Новин
 .main-news
     width: 100%
-    height: auto
+    // height: 600px
+    // min-height: 600px
+    background-color: #000
     margin: 0 auto
-    display: flex
-    justify-content: center
+    display: grid
+    grid-template-rows: repeat(1,1fr)
+    grid-template-columns: repeat(3,1fr)
+    @media (min-width: 920px) 
+            min-height: 500px
+            max-height: 600px
+    @media (max-width: 1100px)
+            // min-height: 300px
+            // max-height: 400px
+            grid-template-rows: repeat(2,1fr)
+            grid-template-columns: repeat(2,1fr)
+            
+            #first_news
+                
+                grid-column: 1/-1
+                .photo
+                    object-position: top 
+            #second_news
     // контейнер картинки
     &__element__wrapper
-        flex-wrap: wrap
-        width: 100%
         display: block
         position: relative
         text-decoration: none
         cursor: pointer
         overflow: hidden
         will-change: flex
-        transition: 1s
-        @media (min-width: 920px) 
-            min-height: 500px
-            max-height: 600px
-        @media (max-width: 920px)
-            min-height: 300px
-            max-height: 400px
-            .main-news__element__text-wrapper
-                font-size: 10px
+        transition: 1s all
+        &:before
+            position: absolute
+            content: ""
+            background-image: linear-gradient(0deg,#000,transparent 75%)
+            bottom: 0
+            height: 100%
+            width: 100%
+            z-index: 1
         &:hover
-            font-size: 25px
-            .main-news__element__photo
-                transform: scale(1.2)
+            .main-news__element__text-wrapper > .main-news__element__text-body
+                max-height: 15vh
+                opacity: 1
+
+    
+            .main-news__element__text-title
+
+                font-size: 30px
+                position: relative
+                top: -2em
+            .photo
+                transform: scale(1.15)
         // картинка
-        .main-news__element__photo
+        .photo
             width: 100%
             height: 100%
             // маштабується відповідно до розміру екрану
@@ -360,28 +502,35 @@ body._mobile
             overflow: hidden
             transition: 1s
         .main-news__element__text-wrapper
-            display: flex
-            flex-direction: column
+            display: block
             z-index: 2
             position: absolute
             left: 10px
             bottom: 15%
-            color: #000000
+            transition: 1s all
             .main-news__element__text-title
-                align-self: flex-end
-                font-size: 25px
-                width: 30vw
+                text-align: left
+                overflow: hidden
+                // font-size: 12px
                 line-height: 30px
-                text-align: center
-                margin-bottom: 5%
-                color: #7af500
+                width: 30vw
+                color: #fff
+                transition: 0.2s 
             .main-news__element__text-body
-                margin-bottom: 5%
-                color: #909090
+                    display: block
+                    max-width: 50vw
+                    max-height: 0vh
+                    overflow: hidden
+                    opacity: 0
+                    color: #ffffff
+                    transition: .4s
+                    transition-delay: 0.1s
             .main-news__element__text-footer
-                color: #ffee00
-                text-align: end
-                padding-right: 2%
+                display: flex
+                align-items: center
+                .news__data
+                    color: #c59014
+                    font-weight: 500
 
 
     //Секція Матчів
@@ -389,122 +538,131 @@ body._mobile
 // Для зміни контейнерів матчів
 
 .matches
-    padding: 25px 0px
+    padding: 35px 0px
     &__content-wrapper
         
         .matches__content
-            
+            height: auto
             display: flex
             justify-content: center
             justify-content: space-around
             flex-wrap: wrap
-            .matches__last-match
-                border: 2px solid
+            .match
+                background-color: #fff
+                border: 2px solid white
                 display: flex
                 flex-direction: column
-                
-            .matches__future-match
-                border: 2px solid
-                display: flex
-                flex-direction: column
+
 
 // Для зміни самої карточки матчів
 .matches__info
-    margin: 0 auto
+    height: 4em
+    width: 30em
+    background-color: #c59014
+    text-align: center
+    align-items: center
+    color: white
+    text-transform: uppercase
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
+    font-weight: 700
     &__tour
         font-size: 20px
         letter-spacing: 2px
-    &__date
-        text-align: center
-        color: #000
-        letter-spacing: 4px
 .matches__result
-    margin-top: 5%
     display: flex
-    &__home-team
-        
+    justify-content: space-evenly
+    align-items: center
+    .team
         &__content
-        &__team-info
             display: flex
-            &__team-name
-                align-self: center
-                font-size: 15px
-                
-            &__team-logo
-                .home-team__icon
-                    width: 98px
-                    height: 98px 
-    &__result
-        display: flex
-        align-items: center
-        &__wrapper
-            border: 2px solid
-            margin: 0px 20px  
-            .matches__result__result__score
-                display: flex
-                font-size: 35px
-                .score-left
-                    
-                .score-dot
-                    
-                .score-right
-                    
-    &__guest-team
-        
-        &__content
-
-        &__team-info
-            display: flex
-            flex-wrap: wrap
-            &__team-name
-                font-size: 15px
-                align-self: center
-                
-
-            &__team-logo
-                .guest-team__icon
+            flex-direction: column-reverse
+            .team__name
+                text-transform: uppercase
+                text-align: center
+                font-weight: 700
+                font-size: 11px
+            .team__logo_wrapper
+                .team__logo
                     width: 98px
                     height: 98px   
+    .result__wrapper
+        .result
+            display: flex
+            .score
+                height: 38px
+                width: 38px
+                border: 4px solid #fff
+                border-radius: 8px
+                background-color: #f2f2f2
+                background-image: linear-gradient(transparent 50%,rgba(0,0,0,.08) 0)
+                font-size: 20px
+                font-weight: 600
+                margin: 0 5px
+                p
+                    text-align: center
+                    transform: translate(0, 30%)
+            .dot
+                align-self: center
+
+
+                
+
+
 
 //Секція Таблиць
-.main-page__section_table
-    .tables__wrapper
-        .tables__content
-            display: flex
-            justify-content: space-between
-            .table__league-wrapper
-                .table__league     
-                    
-            .table__bombardier-wrapper
-                
-                .table__bombardier
-                    
-            .table__assistant-wrapper
-                
-                .table__assistant
+.tables__wrapper
+    .tables__content
+        display: flex
+        justify-content: space-between
+        .table__league-wrapper
+
                     
 .table
+    width: 60%
     min-width: 550px
     border: none
     border-collapse: collapse
     margin: 0 auto
     margin-top: 2%
+    text-transform: uppercase
     .table__head
         font-weight: normal
-        color: #ffc400
+        color: #000000
         padding: 10px 15px
         font-size: 20px
+        background-color: #eaeaea
+        height: 70px
+        
         >tr
+            border: 2px solid #000000
+            
             >th
+                border-right: 1px solid
     .table__body
         >tr
+            height: 25px 
+            color: #000
             &:nth-child(2n)
-                background: #031802
+                background: #eaeaea
+            &:nth-child(2n+1)
+                background: #ffffff
             >td
-                color: #ffffff
-                border-top: 1px solid #e8edff
+                color: #000
+                border: 1px solid #e8edff
                 padding: 10px 15px
-                text-align: center
+                text-align: left
+                align-items: center
+                font-size: 12px
+                font-weight: 500
+                &:not(:nth-child(2))
+                    text-align: center
+                    font-weight: 600
+                    font-size: 13px
+                .team__logo_table
+                    display: inline-block
+                    margin-right: 20px
+                    height: 20px
+                    width: 30px
 .table__title
     margin-top: 20px
     font-size: 30px
@@ -537,11 +695,31 @@ body._mobile
 .tables__wrapper .swiper-pagination
     top: 100%
 
+
 // Загальні стилі для секцій
+.content
+            max-width: $maxWidth
+            margin: 0px auto
+            @media (min-width: 900px)
+                max-width: 850px
+            @media (min-width: 1200px)
+                max-width: 1150px
+            @media (min-width: 1400px)
+                max-width: 1350px      
+
+.title
+    text-align: center
+    font-size: 50px
+    color: $headerColor
+    text-transform: uppercase
+    font-weight: bold
+    font-family: sans-serif
+
 .main-page
     width: 100vw
     padding: 90px 0px 30px 0px
     margin-top: 1%
+    background-image: url(https://koloskovalivka.com/static/img/bg_main.png)
     &:last-child
         padding: 0
     .main-page__title
@@ -551,57 +729,35 @@ body._mobile
     .main-page__sub-title
         font-size: 30px
     .main-page__section
-        background: url('https://cdn.pixabay.com/photo/2016/02/03/01/07/grass-1176417__340.jpg')
-        &__content
-            background-color: #ffffff
-            max-width: $maxWidth
-            margin: 0px auto
-            @media (min-width: 900px)
-                max-width: 850px
-            @media (min-width: 1200px)
-                max-width: 1150px
-            @media (min-width: 1400px)
-                max-width: 1350px            
-    .main-page__section_matches
-        .main-page__section__content
-            background-color: #c9af1cc4
+        
+    .main-page__section_matchesAndTable
+        background-image: url(https://koloskovalivka.com/static/img/bg_main.png)
+        .content
+
     .main-page__section_news
-        margin-top: $headerHeight
-        .main-page__section__content
+        .content
             min-width: 100vw
     .main-page__section_players
-        // background: url('https://koloskovalivka.com/static/img/bg_players.png')
-        background-color: rgba(0,0,0,0.6)
-        .main-page__section__content
+        .content
             min-width: 100vw
-            //min-height: 100vh
-            // background-color: rgba(0,0,0,0.6)
-            background: url('https://koloskovalivka.com/static/img/bg_players.png')
             min-height: 450px
             padding-bottom: 200px
+            .players__title
+                font-size: 35px
+                text-align: center
+                color: #fff
+                font-weight: 700
+                letter-spacing: 2px
+                padding: 50px 0px
     &__section_table
-        .main-page__section__content
+        .content
             min-height: 650px
-            background-color: rgba(0,0,0,0.6)
-
-    &__section_galery
-        
-
-
-
-
-    // Слайдер галереї клубу
-.image__slider
-    padding: 30px 0 70px 0
-.image__slider__image
-    text-align: center
-    img
-        max-width: 100%
+            // background-color: rgba(0,0,0,0.6)        
 
 // Слайдер гравців
 
 .players__wrapper                           
-    transform: translate(0, 20%) 
+    
 .players__wrapper .swiper-button-prev:after,
 .players__wrapper .swiper-button-next:after
         font-size: 20px
@@ -610,76 +766,134 @@ body._mobile
 
 
 // карточка гравця 
+.card_active
+        .card__content:before
+            background-image: linear-gradient(0deg,#000,transparent 10%)
+        .front__side
+            transform: rotateY(180deg)
+        .back__side
+            transform: rotateY(360deg)
 .card 
     width: 100%
-    height: 100%
-    min-width: 400px
-    padding: auto
+    height: 624px
+    max-width: 440px
     text-align: center
-    background: #ffffff
-    border-radius: 15px
-    box-shadow: 25px 25px 50px #fffcf78e, -25px -25px 50px #fff8ea8e
-    &__container 
-        display: grid
-        width: 100%
-        height: 100%
-        grid-template-columns: 1fr 1fr 1fr
-        align-items: center
-        justify-items: center
-        color: white
     &__content 
+        position: relative
         width: 95%
         height: 95%
-        background-color: #292626
-        margin: 10px auto
-        border-radius: 5px
-        padding: 20px
-        box-shadow:  16px 16px 44px #0a0a0a,-16px -16px 44px #282a28
-        transition: 0.3s all ease-in-out
-        &:hover
+        perspective: 1000px
+        &::before
+            position: absolute
+            content: ""
+            background-image: linear-gradient(0deg,#000,transparent 90%)
+            bottom: 0
+            left: 0
+            height: 70%
             width: 100%
-            margin-top: -1px
-    
-        
-    &__player-photo
-
+            z-index: 1    
     &__player
-        &-name 
-            text-transform: uppercase
-            font-size: 25px
-            margin: 0 auto
         &-information
-            margin-top: 10%
-            display: flex
-            justify-content: space-around
-        &-statystic
-            margin-top: 10%
-            text-transform: uppercase
-            font-size: 15px
-            display: flex
-            justify-content: space-around
-            .statystic
-        .card__button
-            padding: 10px
-            border-radius: 50px
-            background: #fafafa
-            color: black
-            font-weight: bold
-            cursor: pointer
-            border: none
-            margin: 30px 0px auto
-            &:hover
-                background-color: #000000
-                color: #ffffff
-                transition: 0.3s all ease-in-out
+            width: 100%
+            height: 100%
+            .card__player-photo
+                object-fit: cover
+                -o-object-position: center
+                object-position: center
+                min-width: 100%
+                height: 100%
+            .card__player-info
+                position: absolute
+                bottom: 80px
+                width: 100%
+                z-index: 1
+                font-weight: 500
+                color: #fff
+                .player__name
+                    font-size: 35px
+                    font-weight: 500
+                    letter-spacing: 2px
+                .position
+                    color: #c59014
+                    font-size: 27px
+                .card__button
+                    transform: translateY(100%)
+                    background-color: $headerColor
+                    border: none
+                    color: white
+                    padding: 5px 32px
+                    text-align: center
+                    text-decoration: none
+                    display: inline-block
+                    font-size: 16px
+                    &:hover
+                        background-color: $activeButton
+  
 
+
+.front__side, .back__side 
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    transition: 1s //задаем плавность анимации
+    backface-visibility: hidden //указываем чтобы тыльная сторона была прозрачной
+    border-radius: 10px
+.front__side
+    
+.back__side
+    background: $headerColor
+    transform: rotateY(180deg)
+    .card__player-data
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        gap: 50px 0px
+        justify-items: center
+        &:last-child
+            transform: translateX(100%)
+        .players__info-item 
+            width: 120px
+            height: 120px
+            border: 2px solid #dd9b00c4
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            border-radius: 50%
+            margin: 0 8px
+            .info__item
+                font-size: 30px
+                color: #ffbb1d
+                font-weight: 600
+            .number
+                font-size: 20px
+                color: white
+                font-weight: 600
+    a
+        display: inline-block
+        background-color: $headerColor
+        color: white
+        font-weight: 700
+        text-decoration: none
+        user-select: none
+        padding: .5em 2em
+        outline: none
+        border: 2px solid
+        border-radius: 1px
+        transition: 0.2s
+        margin-top: 50px
+        &:hover
+            background: $activeButton
 //Секція Підвалу Футера
 footer
-    background: #3d7d21
-    border-top: 8px solid #002903
+    background-color:#16171a
+    border-top: 2px solid #535353
     // margin-top: 110px
     height: 100px
     margin-top: auto
+
 
 .footer__content
     padding: 0 20px
@@ -688,42 +902,35 @@ footer
     width: 100%
     margin: 0 auto
     max-width: $maxWidth
-.footer__items
-    display: flex
-    text-transform: uppercase
-    justify-content: space-between
-    height: 100%
-    align-items: center
-    .footer__copyright
-        @media (max-width: 900px) 
-            display: none
-    .footer__logo-wrapper
+
+.footer__logo-wrapper
         position: relative
-        width: 33.3%
-        text-align: center
-        height: 0
         >a
             height: 0
             display: block
             .footer__logo
-                position: absolute
+                position: relative
                 height: 150px
-                left: 39%
-                top: -100px
-                @media (max-width: 900px) 
-                    position: relative
-                    left: 100%
-                    top: -100px
-    .footer__rights
-        font-size: 20px
+                left: 50%
+                transform: translateX(-50%)
+                top: -3.5em
+
+.footer__items
+    
+    display: flex
+    text-transform: uppercase
+    justify-content: space-between
+    height: 100%
+    align-items: center 
+    .footer__rights, .footer__copyright
+        font-size: 10px
+        font-family: "Ubuntu", sans-serif
+        font-weight: 500
+        color: #9a9da2
         @media (max-width: 900px) 
             display: none
-.wrapper
-    display: flex
-    flex-direction: column
-    min-height: 100%
-main
-    flex: 1 1 auto
+    
+
 
 
 

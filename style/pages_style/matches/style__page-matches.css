@@ -1,0 +1,185 @@
+.calendar__matches {
+  display: grid;
+  grid-template-rows: repeat(14, 5em);
+  grid-template-columns: repeat(5, 1fr);
+  margin: 50px auto;
+  border: 4px solid #747474;
+}
+
+.calendar__matches .teams__played {
+  grid-column: 3/-2;
+}
+
+.calendar__matches .teams__played_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.calendar__matches .teams__played_content .team__logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 30px;
+  text-align: center;
+}
+
+.calendar__matches .teams__played_content .team__details {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.calendar__matches .teams__played_content .team__details .team__name {
+  text-transform: none;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar__matches .teams__played_content .team__details .team__location {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 12px;
+  display: block;
+  line-height: 1.2em;
+}
+
+.calendar__matches .teams__played_content .score {
+  width: 80px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.calendar__matches .teams__played_content .score__result {
+  font-family: "Ubuntu", sans-serif;
+  color: #31404b;
+  font-size: 15px;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.calendar__matches .teams__played_content .score .match__place {
+  display: block;
+  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.2em;
+  color: #9a9da2;
+}
+
+.calendar__matches .details__button {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 10px 42px;
+  font-size: 11px;
+  line-height: 1.5em;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: block;
+  border-color: #dbdfe6;
+  color: #9a9da2;
+  width: 15em;
+  margin: 0 auto;
+}
+
+.calendar__matches .details__button:hover {
+  border: none;
+  color: #fff;
+  background-color: rgba(1, 1, 1, 0.4);
+}
+
+._title {
+  font-size: 20px;
+  text-align: center;
+  align-self: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e4e7ed;
+  font-weight: 700;
+  color: #31404b;
+}
+
+.row {
+  text-align: center;
+  align-self: center;
+}
+
+.tableBlock {
+  padding-bottom: 10%;
+}
+
+.main__table {
+  width: 80%;
+  min-width: 650px;
+  border: none;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 2%;
+  text-transform: uppercase;
+}
+
+.main__table .main__table__head {
+  font-weight: normal;
+  color: #000000;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color: #eaeaea;
+  height: 70px;
+}
+
+.main__table .main__table__head > tr {
+  border: 2px solid #000000;
+}
+
+.main__table .main__table__head > tr > th {
+  border-right: 1px solid;
+}
+
+.main__table .main__table__body > tr {
+  height: 70px;
+  color: #000;
+}
+
+.main__table .main__table__body > tr:nth-child(2n) {
+  background: #eaeaea;
+}
+
+.main__table .main__table__body > tr:nth-child(2n+1) {
+  background: #ffffff;
+}
+
+.main__table .main__table__body > tr > td {
+  color: #000;
+  border: 1px solid #e8edff;
+  padding: 10px 15px;
+  text-align: left;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.main__table .main__table__body > tr > td:not(:nth-child(2)) {
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.main__table .main__table__body > tr > td .team__logo_table {
+  display: inline-block;
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.table__title {
+  margin-top: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
